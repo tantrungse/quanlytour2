@@ -1,0 +1,6 @@
+INDEX VERSION 1.131+C:\Git\quanlytour2\.metadata\.plugins\org.eclipse.jdt.core
+3957480519.index
+2196199803.index
+1597235154.index
+1087184037.index
+2184159569.index
