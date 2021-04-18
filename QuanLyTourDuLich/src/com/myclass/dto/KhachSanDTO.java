@@ -1,51 +1,90 @@
-package com.myclass.dto;
+package DTO;
 
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+
+/**
+ *
+ * @author Thin
+ */
 public class KhachSanDTO {
-	private String maKhachSan;
-	private String tenKhachSan;
-	private String diaChi;
-	private String chiPhiTrenNguoi;
-	
-	public KhachSanDTO() {}
+    String maKS;
+    String tenKS;
+    String diachiKS;
+    String website;
+    String soDT;
+    int chiphi;
+    public KhachSanDTO(){
+        
+    }
 
-	public KhachSanDTO(String maKhachSan, String tenKhachSan, String diaChi, String chiPhiTrenNguoi) {
-		super();
-		this.maKhachSan = maKhachSan;
-		this.tenKhachSan = tenKhachSan;
-		this.diaChi = diaChi;
-		this.chiPhiTrenNguoi = chiPhiTrenNguoi;
-	}
+    public KhachSanDTO(String tenKS, String diachiKS, String website, String soDT, int chiphi) {
+        this.tenKS = tenKS;
+        this.diachiKS = diachiKS;
+        this.website = website;
+        this.soDT = soDT;
+        this.chiphi = chiphi;
+    }
 
-	public String getMaKhachSan() {
-		return maKhachSan;
-	}
+    public KhachSanDTO(String maKS, String tenKS, String diachiKS, String website, String soDT, int chiphi) {
+        this.maKS = maKS;
+        this.tenKS = tenKS;
+        this.diachiKS = diachiKS;
+        this.website = website;
+        this.soDT = soDT;
+        this.chiphi = chiphi;
+    }
 
-	public void setMaKhachSan(String maKhachSan) {
-		this.maKhachSan = maKhachSan;
-	}
+    public String getMaKS() {
+        return maKS;
+    }
 
-	public String getTenKhachSan() {
-		return tenKhachSan;
-	}
+    public void setMaKS(String maKS) {
+        this.maKS = maKS;
+    }
 
-	public void setTenKhachSan(String tenKhachSan) {
-		this.tenKhachSan = tenKhachSan;
-	}
+    public String getTenKS() {
+        return tenKS;
+    }
 
-	public String getDiaChi() {
-		return diaChi;
-	}
+    public void setTenKS(String tenKS) {
+        this.tenKS = tenKS;
+    }
 
-	public void setDiaChi(String diaChi) {
-		this.diaChi = diaChi;
-	}
+    public String getDiachiKS() {
+        return diachiKS;
+    }
 
-	public String getChiPhiTrenNguoi() {
-		return chiPhiTrenNguoi;
-	}
+    public void setDiachiKS(String diachiKS) {
+        this.diachiKS = diachiKS;
+    }
 
-	public void setChiPhiTrenNguoi(String chiPhiTrenNguoi) {
-		this.chiPhiTrenNguoi = chiPhiTrenNguoi;
-	}
-	
+    public String getWebsite() {
+        return website;
+    }
+
+    public void setWebsite(String website) {
+        this.website = website;
+    }
+
+    public String getSoDT() {
+        return soDT;
+    }
+
+    public void setSoDT(String soDT) {
+        this.soDT = soDT;
+    }
+
+    public int getChiphi() {
+        return chiphi;
+    }
+
+    public void setChiphi(int chiphi) {
+        this.chiphi = chiphi;
+    }
+    
+    
 }

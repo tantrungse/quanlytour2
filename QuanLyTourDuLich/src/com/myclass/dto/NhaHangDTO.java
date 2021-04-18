@@ -1,51 +1,90 @@
-package com.myclass.dto;
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package DTO;
 
+/**
+ *
+ * @author Thin
+ */
 public class NhaHangDTO {
-	private String maNhaHang;
-	private String tenNhaHang;
-	private String diaChi;
-	private String chiPhiTrenNguoi;
-	
-	public NhaHangDTO() {}
+    private String maNH;
+    private String tenNH;
+    private String diachi;
+    private String website;
+    private String soDT;
+    private int chiphi;
+    
+    public NhaHangDTO(){
+        
+    }
 
-	public NhaHangDTO(String maNhaHang, String tenNhaHang, String diaChi, String chiPhiTrenNguoi) {
-		super();
-		this.maNhaHang = maNhaHang;
-		this.tenNhaHang = tenNhaHang;
-		this.diaChi = diaChi;
-		this.chiPhiTrenNguoi = chiPhiTrenNguoi;
-	}
+    public NhaHangDTO(String tenNH, String diachi, String website, String soDT, int chiphi) {
+        this.tenNH = tenNH;
+        this.diachi = diachi;
+        this.website = website;
+        this.soDT = soDT;
+        this.chiphi = chiphi;
+    }
 
-	public String getMaNhaHang() {
-		return maNhaHang;
-	}
+    public NhaHangDTO(String maNH, String tenNH, String diachi, String website, String soDT, int chiphi) {
+        this.maNH = maNH;
+        this.tenNH = tenNH;
+        this.diachi = diachi;
+        this.website = website;
+        this.soDT = soDT;
+        this.chiphi = chiphi;
+    }
 
-	public void setMaNhaHang(String maNhaHang) {
-		this.maNhaHang = maNhaHang;
-	}
+    public String getMaNH() {
+        return maNH;
+    }
 
-	public String getTenNhaHang() {
-		return tenNhaHang;
-	}
+    public void setMaNH(String maNH) {
+        this.maNH = maNH;
+    }
 
-	public void setTenNhaHang(String tenNhaHang) {
-		this.tenNhaHang = tenNhaHang;
-	}
+    public String getTenNH() {
+        return tenNH;
+    }
 
-	public String getDiaChi() {
-		return diaChi;
-	}
+    public void setTenNH(String tenNH) {
+        this.tenNH = tenNH;
+    }
 
-	public void setDiaChi(String diaChi) {
-		this.diaChi = diaChi;
-	}
+    public String getDiachi() {
+        return diachi;
+    }
 
-	public String getChiPhiTrenNguoi() {
-		return chiPhiTrenNguoi;
-	}
+    public void setDiachi(String diachi) {
+        this.diachi = diachi;
+    }
 
-	public void setChiPhiTrenNguoi(String chiPhiTrenNguoi) {
-		this.chiPhiTrenNguoi = chiPhiTrenNguoi;
-	}
-	
+    public String getWebsite() {
+        return website;
+    }
+
+    public void setWebsite(String website) {
+        this.website = website;
+    }
+
+    public String getSoDT() {
+        return soDT;
+    }
+
+    public void setSoDT(String soDT) {
+        this.soDT = soDT;
+    }
+
+    public int getChiphi() {
+        return chiphi;
+    }
+
+    public void setChiphi(int chiphi) {
+        this.chiphi = chiphi;
+    }
+    
+    
 }
