@@ -1,8 +1,8 @@
-package GUI;
+package com.myclass.gui;
 
-import BUS.KhachSanBUS;
-import DAO.KhachSanDAO;
-import DTO.KhachSanDTO;
+import com.myclass.bus.KhachSanBUS;
+import com.myclass.dao.KhachSanDAO;
+import com.myclass.dto.KhachSanDTO;
 import java.util.ArrayList;
 import java.util.List;
 import javax.swing.JOptionPane;
@@ -99,26 +99,26 @@ public class KhachSanGUI extends javax.swing.JFrame {
 
         lbDanhMucKhachSan.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
         lbDanhMucKhachSan.setForeground(new java.awt.Color(153, 0, 0));
-        lbDanhMucKhachSan.setText("DANH MỤC KHÁCH SẠN");
+        lbDanhMucKhachSan.setText("DANH Má»¤C KHÃ�CH Sáº N");
 
-        lbLogoKhachSan.setIcon(new javax.swing.ImageIcon("C:\\Users\\Thin\\OneDrive\\Máy tính\\java\\QuanLyTourDuLich\\src\\main\\java\\IMAGE\\logoKhachSan.PNG")); // NOI18N
+        lbLogoKhachSan.setIcon(new javax.swing.ImageIcon("C:\\Users\\Thin\\OneDrive\\MÃ¡y tÃ­nh\\java\\QuanLyTourDuLich\\src\\main\\java\\IMAGE\\logoKhachSan.PNG")); // NOI18N
         lbLogoKhachSan.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
         lbMaKhachsan.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         lbMaKhachsan.setForeground(new java.awt.Color(0, 0, 0));
-        lbMaKhachsan.setText("Mã khách sạn");
+        lbMaKhachsan.setText("MÃ£ khÃ¡ch sáº¡n");
 
         lbTenKhachSan.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         lbTenKhachSan.setForeground(new java.awt.Color(0, 0, 0));
-        lbTenKhachSan.setText("Tên khách sạn");
+        lbTenKhachSan.setText("TÃªn khÃ¡ch sáº¡n");
 
         lbDiaChi.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         lbDiaChi.setForeground(new java.awt.Color(0, 0, 0));
-        lbDiaChi.setText("Địa chỉ");
+        lbDiaChi.setText("Ä�á»‹a chá»‰");
 
         lbChiPhi.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         lbChiPhi.setForeground(new java.awt.Color(0, 0, 0));
-        lbChiPhi.setText("Chi phí / Phòng");
+        lbChiPhi.setText("Chi phÃ­ / PhÃ²ng");
 
         tblKhachSan.setBackground(new java.awt.Color(204, 204, 255));
         tblKhachSan.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(102, 102, 255)));
@@ -134,7 +134,7 @@ public class KhachSanGUI extends javax.swing.JFrame {
                 {null, null, null, null, null, null}
             },
             new String [] {
-                "Mã khách sạn", "Tên khách sạn", "Địa chỉ", "Website", "Số điện thoại", "Chi phí/ Phòng"
+                "MÃ£ khÃ¡ch sáº¡n", "TÃªn khÃ¡ch sáº¡n", "Ä�á»‹a chá»‰", "Website", "Sá»‘ Ä‘iá»‡n thoáº¡i", "Chi phÃ­/ PhÃ²ng"
             }
         ) {
             boolean[] canEdit = new boolean [] {
@@ -151,7 +151,7 @@ public class KhachSanGUI extends javax.swing.JFrame {
         btnTimKiemKhachSan.setBackground(new java.awt.Color(204, 204, 255));
         btnTimKiemKhachSan.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         btnTimKiemKhachSan.setForeground(new java.awt.Color(0, 0, 0));
-        btnTimKiemKhachSan.setText("Tìm Kiếm Khách Sạn");
+        btnTimKiemKhachSan.setText("TÃ¬m Kiáº¿m KhÃ¡ch Sáº¡n");
         btnTimKiemKhachSan.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnTimKiemKhachSanActionPerformed(evt);
@@ -161,7 +161,7 @@ public class KhachSanGUI extends javax.swing.JFrame {
         btnXoaThongTinKhachSan.setBackground(new java.awt.Color(204, 204, 255));
         btnXoaThongTinKhachSan.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         btnXoaThongTinKhachSan.setForeground(new java.awt.Color(0, 0, 0));
-        btnXoaThongTinKhachSan.setText("Xóa Thông Tin Khách Sạn");
+        btnXoaThongTinKhachSan.setText("XÃ³a ThÃ´ng Tin KhÃ¡ch Sáº¡n");
         btnXoaThongTinKhachSan.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnXoaThongTinKhachSanActionPerformed(evt);
@@ -174,12 +174,12 @@ public class KhachSanGUI extends javax.swing.JFrame {
 
         lbSoDienThoai.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         lbSoDienThoai.setForeground(new java.awt.Color(0, 0, 0));
-        lbSoDienThoai.setText("Số điện thoại");
+        lbSoDienThoai.setText("Sá»‘ Ä‘iá»‡n thoáº¡i");
 
         btnLuuThongTinKhachSan.setBackground(new java.awt.Color(204, 204, 255));
         btnLuuThongTinKhachSan.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         btnLuuThongTinKhachSan.setForeground(new java.awt.Color(0, 0, 0));
-        btnLuuThongTinKhachSan.setText("Lưu Thông Tin Khách Sạn");
+        btnLuuThongTinKhachSan.setText("LÆ°u ThÃ´ng Tin KhÃ¡ch Sáº¡n");
         btnLuuThongTinKhachSan.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnLuuThongTinKhachSanActionPerformed(evt);
@@ -189,7 +189,7 @@ public class KhachSanGUI extends javax.swing.JFrame {
         btnSuaThongTinKhachSan.setBackground(new java.awt.Color(204, 204, 255));
         btnSuaThongTinKhachSan.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         btnSuaThongTinKhachSan.setForeground(new java.awt.Color(0, 0, 0));
-        btnSuaThongTinKhachSan.setText("Sửa Thông Tin Khách Sạn");
+        btnSuaThongTinKhachSan.setText("Sá»­a ThÃ´ng Tin KhÃ¡ch Sáº¡n");
         btnSuaThongTinKhachSan.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnSuaThongTinKhachSanActionPerformed(evt);
@@ -199,7 +199,7 @@ public class KhachSanGUI extends javax.swing.JFrame {
         btnXemDanhSachKhachSan.setBackground(new java.awt.Color(204, 204, 255));
         btnXemDanhSachKhachSan.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         btnXemDanhSachKhachSan.setForeground(new java.awt.Color(0, 0, 0));
-        btnXemDanhSachKhachSan.setText("Xem danh sách khách sạn");
+        btnXemDanhSachKhachSan.setText("Xem danh sÃ¡ch khÃ¡ch sáº¡n");
         btnXemDanhSachKhachSan.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnXemDanhSachKhachSanActionPerformed(evt);
@@ -219,7 +219,7 @@ public class KhachSanGUI extends javax.swing.JFrame {
         btnCapNhat.setBackground(new java.awt.Color(204, 204, 204));
         btnCapNhat.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         btnCapNhat.setForeground(new java.awt.Color(0, 0, 0));
-        btnCapNhat.setText("CẬP NHẬT");
+        btnCapNhat.setText("Cáº¬P NHáº¬T");
         btnCapNhat.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnCapNhatActionPerformed(evt);
@@ -374,7 +374,7 @@ public class KhachSanGUI extends javax.swing.JFrame {
         if (selectedIndex >= 0) {
             KhachSanDTO ksDTO = khachsanList.get(selectedIndex);
 
-            int option = JOptionPane.showConfirmDialog(this, "Bạn chắc chắn xóa thông tin khách sạn này ?");
+            int option = JOptionPane.showConfirmDialog(this, "Báº¡n cháº¯c cháº¯n xÃ³a thÃ´ng tin khÃ¡ch sáº¡n nÃ y ?");
             //System.out.println("option: " + option);
             //yes->0
             //No->1
@@ -413,16 +413,16 @@ public class KhachSanGUI extends javax.swing.JFrame {
     private void btnTimKiemKhachSanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTimKiemKhachSanActionPerformed
         // TODO add your handling code here:
         Object[] options = {
-            "Tìm kiếm theo mã khách sạn", "Tìm kiếm theo tên khách sạn", "Đóng"
+            "TÃ¬m kiáº¿m theo mÃ£ khÃ¡ch sáº¡n", "TÃ¬m kiáº¿m theo tÃªn khÃ¡ch sáº¡n", "Ä�Ã³ng"
         };
-        int select = JOptionPane.showOptionDialog(this, "Bạn muốn tìm kiếm theo phương thức nào ?", "Tùy chọn", JOptionPane.YES_NO_CANCEL_OPTION, JOptionPane.QUESTION_MESSAGE, null, options, options[2]);
+        int select = JOptionPane.showOptionDialog(this, "Báº¡n muá»‘n tÃ¬m kiáº¿m theo phÆ°Æ¡ng thá»©c nÃ o ?", "TÃ¹y chá»�n", JOptionPane.YES_NO_CANCEL_OPTION, JOptionPane.QUESTION_MESSAGE, null, options, options[2]);
         //System.out.println("select: " + select);
-        //mã -> select: 0
-        //tên -> select: 1
+        //mÃ£ -> select: 0
+        //tÃªn -> select: 1
         // chi phi -> select: 2
-        // đóng -> select: 3
+        // Ä‘Ã³ng -> select: 3
         if (select == 0) {
-            String input = JOptionPane.showInputDialog(this, "Mời nhập mã khách sạn !");
+            String input = JOptionPane.showInputDialog(this, "Má»�i nháº­p mÃ£ khÃ¡ch sáº¡n !");
 
             if (input != null && input.length() > 0) {
                 khachsanList = KhachSanBUS.findByMaKS(input);
@@ -436,13 +436,13 @@ public class KhachSanGUI extends javax.swing.JFrame {
                     });
                 });
             } else {
-                JOptionPane.showMessageDialog(null, "Lỗi tìm kiếm !");
+                JOptionPane.showMessageDialog(null, "Lá»—i tÃ¬m kiáº¿m !");
             }
 
         }
         
         if(select == 1){
-            String input = JOptionPane.showInputDialog(this,"Mời nhập tên khách sạn !");
+            String input = JOptionPane.showInputDialog(this,"Má»�i nháº­p tÃªn khÃ¡ch sáº¡n !");
             
             if (input != null && input.length() > 0) {
                 khachsanList = KhachSanBUS.findByTenKS(input);
@@ -456,7 +456,7 @@ public class KhachSanGUI extends javax.swing.JFrame {
                     });
                 });
             } else {
-                JOptionPane.showMessageDialog(null, "Lỗi tìm kiếm !");
+                JOptionPane.showMessageDialog(null, "Lá»—i tÃ¬m kiáº¿m !");
             }
         }
     }//GEN-LAST:event_btnTimKiemKhachSanActionPerformed

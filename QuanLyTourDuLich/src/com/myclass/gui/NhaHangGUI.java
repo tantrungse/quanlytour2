@@ -1,7 +1,7 @@
-package GUI;
+package com.myclass.gui;
 
-import BUS.NhaHangBUS;
-import DTO.NhaHangDTO;
+import com.myclass.bus.NhaHangBUS;
+import com.myclass.dto.NhaHangDTO;
 import java.util.ArrayList;
 import java.util.List;
 import javax.swing.JOptionPane;
@@ -97,26 +97,26 @@ public class NhaHangGUI extends javax.swing.JFrame {
 
         lbDanhMucNhaHang.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
         lbDanhMucNhaHang.setForeground(new java.awt.Color(153, 0, 0));
-        lbDanhMucNhaHang.setText("DANH MỤC NHÀ HÀNG");
+        lbDanhMucNhaHang.setText("DANH Má»¤C NHÃ€ HÃ€NG");
 
-        lbLogoNhaHang.setIcon(new javax.swing.ImageIcon("C:\\Users\\Thin\\OneDrive\\Máy tính\\java\\QuanLyTourDuLich\\src\\main\\java\\IMAGE\\logoNhaHang.PNG")); // NOI18N
+        lbLogoNhaHang.setIcon(new javax.swing.ImageIcon("C:\\Users\\Thin\\OneDrive\\MÃ¡y tÃ­nh\\java\\QuanLyTourDuLich\\src\\main\\java\\IMAGE\\logoNhaHang.PNG")); // NOI18N
         lbLogoNhaHang.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
         lbMaNhaHang.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         lbMaNhaHang.setForeground(new java.awt.Color(0, 0, 0));
-        lbMaNhaHang.setText("Mã nhà hàng");
+        lbMaNhaHang.setText("MÃ£ nhÃ  hÃ ng");
 
         lbTenNhaHang.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         lbTenNhaHang.setForeground(new java.awt.Color(0, 0, 0));
-        lbTenNhaHang.setText("Tên nhà hàng");
+        lbTenNhaHang.setText("TÃªn nhÃ  hÃ ng");
 
         lbDiaChi.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         lbDiaChi.setForeground(new java.awt.Color(0, 0, 0));
-        lbDiaChi.setText("Địa chỉ");
+        lbDiaChi.setText("Ä�á»‹a chá»‰");
 
         lbChiPhi.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         lbChiPhi.setForeground(new java.awt.Color(0, 0, 0));
-        lbChiPhi.setText("Chi phí / Người");
+        lbChiPhi.setText("Chi phÃ­ / NgÆ°á»�i");
 
         tblNhaHang.setBackground(new java.awt.Color(204, 204, 255));
         tblNhaHang.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(102, 102, 255)));
@@ -131,7 +131,7 @@ public class NhaHangGUI extends javax.swing.JFrame {
                 {null, null, null, null, null, null}
             },
             new String [] {
-                "Mã nhà hàng", "Tên nhà hàng", "Địa chỉ", "Website", "Số điện thoại", "Chi phí/ Người"
+                "MÃ£ nhÃ  hÃ ng", "TÃªn nhÃ  hÃ ng", "Ä�á»‹a chá»‰", "Website", "Sá»‘ Ä‘iá»‡n thoáº¡i", "Chi phÃ­/ NgÆ°á»�i"
             }
         ) {
             boolean[] canEdit = new boolean [] {
@@ -147,7 +147,7 @@ public class NhaHangGUI extends javax.swing.JFrame {
         btnTimKiemNhaHang.setBackground(new java.awt.Color(204, 204, 255));
         btnTimKiemNhaHang.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         btnTimKiemNhaHang.setForeground(new java.awt.Color(0, 0, 0));
-        btnTimKiemNhaHang.setText("Tìm Kiếm Nhà Hàng");
+        btnTimKiemNhaHang.setText("TÃ¬m Kiáº¿m NhÃ  HÃ ng");
         btnTimKiemNhaHang.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnTimKiemNhaHangActionPerformed(evt);
@@ -157,7 +157,7 @@ public class NhaHangGUI extends javax.swing.JFrame {
         btnXoaThongTinNhaHang.setBackground(new java.awt.Color(204, 204, 255));
         btnXoaThongTinNhaHang.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         btnXoaThongTinNhaHang.setForeground(new java.awt.Color(0, 0, 0));
-        btnXoaThongTinNhaHang.setText("Xóa Thông Tin Nhà Hàng");
+        btnXoaThongTinNhaHang.setText("XÃ³a ThÃ´ng Tin NhÃ  HÃ ng");
         btnXoaThongTinNhaHang.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnXoaThongTinNhaHangActionPerformed(evt);
@@ -170,12 +170,12 @@ public class NhaHangGUI extends javax.swing.JFrame {
 
         lbSoDienThoai.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         lbSoDienThoai.setForeground(new java.awt.Color(0, 0, 0));
-        lbSoDienThoai.setText("Số điện thoại");
+        lbSoDienThoai.setText("Sá»‘ Ä‘iá»‡n thoáº¡i");
 
         btnLuuThongTinNhaHang.setBackground(new java.awt.Color(204, 204, 255));
         btnLuuThongTinNhaHang.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         btnLuuThongTinNhaHang.setForeground(new java.awt.Color(0, 0, 0));
-        btnLuuThongTinNhaHang.setText("Lưu Thông Tin Nhà Hàng");
+        btnLuuThongTinNhaHang.setText("LÆ°u ThÃ´ng Tin NhÃ  HÃ ng");
         btnLuuThongTinNhaHang.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnLuuThongTinNhaHangActionPerformed(evt);
@@ -185,7 +185,7 @@ public class NhaHangGUI extends javax.swing.JFrame {
         tnSuaThongTinNhaHang.setBackground(new java.awt.Color(204, 204, 255));
         tnSuaThongTinNhaHang.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         tnSuaThongTinNhaHang.setForeground(new java.awt.Color(0, 0, 0));
-        tnSuaThongTinNhaHang.setText("Sửa Thông Tin Nhà Hàng");
+        tnSuaThongTinNhaHang.setText("Sá»­a ThÃ´ng Tin NhÃ  HÃ ng");
         tnSuaThongTinNhaHang.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 tnSuaThongTinNhaHangActionPerformed(evt);
@@ -195,7 +195,7 @@ public class NhaHangGUI extends javax.swing.JFrame {
         btnXemDanhSachNhaHang.setBackground(new java.awt.Color(204, 204, 255));
         btnXemDanhSachNhaHang.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         btnXemDanhSachNhaHang.setForeground(new java.awt.Color(0, 0, 0));
-        btnXemDanhSachNhaHang.setText("Xem danh sách nhà hàng");
+        btnXemDanhSachNhaHang.setText("Xem danh sÃ¡ch nhÃ  hÃ ng");
         btnXemDanhSachNhaHang.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnXemDanhSachNhaHangActionPerformed(evt);
@@ -215,7 +215,7 @@ public class NhaHangGUI extends javax.swing.JFrame {
         btnCapNhat.setBackground(new java.awt.Color(204, 204, 204));
         btnCapNhat.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         btnCapNhat.setForeground(new java.awt.Color(0, 0, 0));
-        btnCapNhat.setText("CẬP NHẬT");
+        btnCapNhat.setText("Cáº¬P NHáº¬T");
         btnCapNhat.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnCapNhatActionPerformed(evt);
@@ -391,18 +391,18 @@ public class NhaHangGUI extends javax.swing.JFrame {
     private void btnTimKiemNhaHangActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTimKiemNhaHangActionPerformed
         // TODO add your handling code here:
         Object[] options = {
-            "Tìm kiếm theo mã nhà hàng", "Tìm kiếm theo tên nhà hàng", "Đóng"
+            "TÃ¬m kiáº¿m theo mÃ£ nhÃ  hÃ ng", "TÃ¬m kiáº¿m theo tÃªn nhÃ  hÃ ng", "Ä�Ã³ng"
         };
-        int select = JOptionPane.showOptionDialog(this, "Bạn muốn tìm kiếm theo phương thức nào?", "Tùy chọn", JOptionPane.YES_NO_CANCEL_OPTION, JOptionPane.QUESTION_MESSAGE, null, options, options[2]);
+        int select = JOptionPane.showOptionDialog(this, "Báº¡n muá»‘n tÃ¬m kiáº¿m theo phÆ°Æ¡ng thá»©c nÃ o?", "TÃ¹y chá»�n", JOptionPane.YES_NO_CANCEL_OPTION, JOptionPane.QUESTION_MESSAGE, null, options, options[2]);
         
         //System.out.println("select: " + select);
-        //mã -> select: 0
-        //tên -> select: 1
+        //mÃ£ -> select: 0
+        //tÃªn -> select: 1
         // chi phi -> select: 2
-        // đóng -> select: 3
+        // Ä‘Ã³ng -> select: 3
         
         if(select == 0){
-            String input = JOptionPane.showInputDialog(this, "Mời bạn nhập mã nhà hàng !");
+            String input = JOptionPane.showInputDialog(this, "Má»�i báº¡n nháº­p mÃ£ nhÃ  hÃ ng !");
             
             if(input != null && input.length() > 0){
                 nhahangList = NhaHangBUS.findByMaNH(input);
@@ -415,12 +415,12 @@ public class NhaHangGUI extends javax.swing.JFrame {
                 });
             }
             else {
-                JOptionPane.showMessageDialog(null, "Lỗi tìm kiếm !");
+                JOptionPane.showMessageDialog(null, "Lá»—i tÃ¬m kiáº¿m !");
             }
         }
         
         if(select == 1){
-            String input = JOptionPane.showInputDialog(this, "Mời bạn nhập tên nhà hàng");
+            String input = JOptionPane.showInputDialog(this, "Má»�i báº¡n nháº­p tÃªn nhÃ  hÃ ng");
             
             if(input != null && input.length() > 0){
                 nhahangList = NhaHangBUS.findByTenNH(input);
@@ -433,7 +433,7 @@ public class NhaHangGUI extends javax.swing.JFrame {
                 });
             }
             else {
-                JOptionPane.showMessageDialog(null, "Lỗi tìm kiếm !");
+                JOptionPane.showMessageDialog(null, "Lá»—i tÃ¬m kiáº¿m !");
             }
         }
     }//GEN-LAST:event_btnTimKiemNhaHangActionPerformed
@@ -444,7 +444,7 @@ public class NhaHangGUI extends javax.swing.JFrame {
         if(selectedIndex >= 0){
             NhaHangDTO nhDTO = nhahangList.get(selectedIndex);
             
-            int option = JOptionPane.showConfirmDialog(this, "Bạn chắc chắn muốn xóa thông tin này ?");
+            int option = JOptionPane.showConfirmDialog(this, "Báº¡n cháº¯c cháº¯n muá»‘n xÃ³a thÃ´ng tin nÃ y ?");
             
             //System.out.println("option: " + option);
             //yes->0

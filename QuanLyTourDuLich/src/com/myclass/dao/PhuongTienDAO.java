@@ -3,9 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package DAO;
+package com.myclass.dao;
 
-import DTO.PhuongTienDTO;
+import com.myclass.dto.PhuongTienDTO;
 import com.mysql.cj.xdevapi.Result;
 import java.sql.Connection;
 import java.sql.DriverManager;

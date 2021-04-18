@@ -3,10 +3,10 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package BUS;
+package com.myclass.bus;
 
-import DAO.NhaHangDAO;
-import DTO.NhaHangDTO;
+import com.myclass.dao.NhaHangDAO;
+import com.myclass.dto.NhaHangDTO;
 import java.util.ArrayList;
 import java.util.List;
 

@@ -3,10 +3,10 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package BUS;
+package com.myclass.bus;
 
-import DAO.KhachSanDAO;
-import DTO.KhachSanDTO;
+import com.myclass.dao.KhachSanDAO;
+import com.myclass.dto.KhachSanDTO;
 import java.util.ArrayList;
 import java.util.List;
 import javax.swing.table.DefaultTableModel;

@@ -1,7 +1,7 @@
-package GUI;
+package com.myclass.gui;
 
-import BUS.PhuongTienBUS;
-import DTO.PhuongTienDTO;
+import com.myclass.bus.PhuongTienBUS;
+import com.myclass.dto.PhuongTienDTO;
 import java.util.ArrayList;
 import java.util.List;
 import javax.swing.JOptionPane;
@@ -95,14 +95,14 @@ public class PhuongTienGUI extends javax.swing.JFrame {
 
         lbDanhMucNhaHang.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
         lbDanhMucNhaHang.setForeground(new java.awt.Color(153, 0, 0));
-        lbDanhMucNhaHang.setText("DANH MỤC PHƯƠNG TIỆN");
+        lbDanhMucNhaHang.setText("DANH Má»¤C PHÆ¯Æ NG TIá»†N");
 
-        lbLogoNhaHang.setIcon(new javax.swing.ImageIcon("C:\\Users\\Thin\\OneDrive\\Máy tính\\java\\QuanLyTourDuLich\\src\\main\\java\\IMAGE\\logoPhuongTien.PNG")); // NOI18N
+        lbLogoNhaHang.setIcon(new javax.swing.ImageIcon("C:\\Users\\Thin\\OneDrive\\MÃ¡y tÃ­nh\\java\\QuanLyTourDuLich\\src\\main\\java\\IMAGE\\logoPhuongTien.PNG")); // NOI18N
         lbLogoNhaHang.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
         lbMaPT.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         lbMaPT.setForeground(new java.awt.Color(0, 0, 0));
-        lbMaPT.setText("Mã phương tiện");
+        lbMaPT.setText("MÃ£ phÆ°Æ¡ng tiá»‡n");
 
         txtMaPT.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -112,15 +112,15 @@ public class PhuongTienGUI extends javax.swing.JFrame {
 
         lbTenPT.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         lbTenPT.setForeground(new java.awt.Color(0, 0, 0));
-        lbTenPT.setText("Tên phương tiện");
+        lbTenPT.setText("TÃªn phÆ°Æ¡ng tiá»‡n");
 
         lbDiaChi.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         lbDiaChi.setForeground(new java.awt.Color(0, 0, 0));
-        lbDiaChi.setText("Địa chỉ thuê");
+        lbDiaChi.setText("Ä�á»‹a chá»‰ thuÃª");
 
         lbChiPhi.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         lbChiPhi.setForeground(new java.awt.Color(0, 0, 0));
-        lbChiPhi.setText("Chi phí / Người");
+        lbChiPhi.setText("Chi phÃ­ / NgÆ°á»�i");
 
         tblPhuongTien.setBackground(new java.awt.Color(204, 204, 255));
         tblPhuongTien.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(102, 102, 255)));
@@ -135,7 +135,7 @@ public class PhuongTienGUI extends javax.swing.JFrame {
                 {null, null, null, null, null, null}
             },
             new String [] {
-                "Mã phương tiện", "Tên phương tiện", "Địa chỉ thuê", "Số chỗ ngồi", "Số điện thoại", "Chi phí/ Người"
+                "MÃ£ phÆ°Æ¡ng tiá»‡n", "TÃªn phÆ°Æ¡ng tiá»‡n", "Ä�á»‹a chá»‰ thuÃª", "Sá»‘ chá»— ngá»“i", "Sá»‘ Ä‘iá»‡n thoáº¡i", "Chi phÃ­/ NgÆ°á»�i"
             }
         ) {
             boolean[] canEdit = new boolean [] {
@@ -151,7 +151,7 @@ public class PhuongTienGUI extends javax.swing.JFrame {
         btnTimKiemPT.setBackground(new java.awt.Color(204, 204, 255));
         btnTimKiemPT.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         btnTimKiemPT.setForeground(new java.awt.Color(0, 0, 0));
-        btnTimKiemPT.setText("Tìm Kiếm Phương Tiện");
+        btnTimKiemPT.setText("TÃ¬m Kiáº¿m PhÆ°Æ¡ng Tiá»‡n");
         btnTimKiemPT.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnTimKiemPTActionPerformed(evt);
@@ -161,7 +161,7 @@ public class PhuongTienGUI extends javax.swing.JFrame {
         btnXoaTTPT.setBackground(new java.awt.Color(204, 204, 255));
         btnXoaTTPT.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         btnXoaTTPT.setForeground(new java.awt.Color(0, 0, 0));
-        btnXoaTTPT.setText("Xóa Thông Tin Phương Tiện");
+        btnXoaTTPT.setText("XÃ³a ThÃ´ng Tin PhÆ°Æ¡ng Tiá»‡n");
         btnXoaTTPT.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnXoaTTPTActionPerformed(evt);
@@ -170,16 +170,16 @@ public class PhuongTienGUI extends javax.swing.JFrame {
 
         lbSoChoNgoi.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         lbSoChoNgoi.setForeground(new java.awt.Color(0, 0, 0));
-        lbSoChoNgoi.setText("Số chỗ ngồi");
+        lbSoChoNgoi.setText("Sá»‘ chá»— ngá»“i");
 
         lbSoDienThoai.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         lbSoDienThoai.setForeground(new java.awt.Color(0, 0, 0));
-        lbSoDienThoai.setText("Số điện thoại");
+        lbSoDienThoai.setText("Sá»‘ Ä‘iá»‡n thoáº¡i");
 
         btnLuuTTPT.setBackground(new java.awt.Color(204, 204, 255));
         btnLuuTTPT.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         btnLuuTTPT.setForeground(new java.awt.Color(0, 0, 0));
-        btnLuuTTPT.setText("Lưu Thông Tin Phương Tiện");
+        btnLuuTTPT.setText("LÆ°u ThÃ´ng Tin PhÆ°Æ¡ng Tiá»‡n");
         btnLuuTTPT.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnLuuTTPTActionPerformed(evt);
@@ -189,7 +189,7 @@ public class PhuongTienGUI extends javax.swing.JFrame {
         btnSuaTTPT.setBackground(new java.awt.Color(204, 204, 255));
         btnSuaTTPT.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         btnSuaTTPT.setForeground(new java.awt.Color(0, 0, 0));
-        btnSuaTTPT.setText("Sửa Thông Tin Phương Tiện");
+        btnSuaTTPT.setText("Sá»­a ThÃ´ng Tin PhÆ°Æ¡ng Tiá»‡n");
         btnSuaTTPT.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnSuaTTPTActionPerformed(evt);
@@ -199,7 +199,7 @@ public class PhuongTienGUI extends javax.swing.JFrame {
         btnXemDSPT.setBackground(new java.awt.Color(204, 204, 255));
         btnXemDSPT.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         btnXemDSPT.setForeground(new java.awt.Color(0, 0, 0));
-        btnXemDSPT.setText("Xem Danh Sách Phương Tiện");
+        btnXemDSPT.setText("Xem Danh SÃ¡ch PhÆ°Æ¡ng Tiá»‡n");
         btnXemDSPT.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnXemDSPTActionPerformed(evt);
@@ -219,7 +219,7 @@ public class PhuongTienGUI extends javax.swing.JFrame {
         btnCapNhat.setBackground(new java.awt.Color(204, 204, 204));
         btnCapNhat.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         btnCapNhat.setForeground(new java.awt.Color(0, 0, 0));
-        btnCapNhat.setText("CẬP NHẬT");
+        btnCapNhat.setText("Cáº¬P NHáº¬T");
         btnCapNhat.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnCapNhatActionPerformed(evt);
@@ -363,17 +363,17 @@ public class PhuongTienGUI extends javax.swing.JFrame {
     private void btnTimKiemPTActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTimKiemPTActionPerformed
 
         Object[] options = {
-            "Tìm kiêm theo mã phương tiện", "Tìm kiếm theo tên phương tiện", "Đóng"
+            "TÃ¬m kiÃªm theo mÃ£ phÆ°Æ¡ng tiá»‡n", "TÃ¬m kiáº¿m theo tÃªn phÆ°Æ¡ng tiá»‡n", "Ä�Ã³ng"
         };
-        int select = JOptionPane.showOptionDialog(this, "Bạn muốn tìm kiếm theo phương thức nào ?", "Tùy chọn", JOptionPane.YES_NO_CANCEL_OPTION, JOptionPane.QUESTION_MESSAGE, null, options, options[2]);
+        int select = JOptionPane.showOptionDialog(this, "Báº¡n muá»‘n tÃ¬m kiáº¿m theo phÆ°Æ¡ng thá»©c nÃ o ?", "TÃ¹y chá»�n", JOptionPane.YES_NO_CANCEL_OPTION, JOptionPane.QUESTION_MESSAGE, null, options, options[2]);
         //System.out.println("select: " + select);
-        //mã -> select: 0
-        //tên -> select: 1
+        //mÃ£ -> select: 0
+        //tÃªn -> select: 1
         // chi phi -> select: 2
-        // đóng -> select: 3
+        // Ä‘Ã³ng -> select: 3
 
         if (select == 0) {
-            String input = JOptionPane.showInputDialog(this, "Mời bạn nhập mã phương tiện !");
+            String input = JOptionPane.showInputDialog(this, "Má»�i báº¡n nháº­p mÃ£ phÆ°Æ¡ng tiá»‡n !");
 
             if (input != null && input.length() > 0) {
                 phuongtienList = PhuongTienBUS.findByMaPT(input);
@@ -385,12 +385,12 @@ public class PhuongTienGUI extends javax.swing.JFrame {
                     });
                 });
             } else {
-                JOptionPane.showMessageDialog(null, "Lỗi tìm kiếm !");
+                JOptionPane.showMessageDialog(null, "Lá»—i tÃ¬m kiáº¿m !");
             }
         }
 
         if (select == 1) {
-            String input = JOptionPane.showInputDialog(this, "Mời bạn nhập tên nhà hàng");
+            String input = JOptionPane.showInputDialog(this, "Má»�i báº¡n nháº­p tÃªn nhÃ  hÃ ng");
 
             if (input != null && input.length() > 0) {
                 phuongtienList = PhuongTienBUS.findByTenPT(input);
@@ -402,7 +402,7 @@ public class PhuongTienGUI extends javax.swing.JFrame {
                     });
                 });
             } else {
-                JOptionPane.showMessageDialog(null, "Lỗi tìm kiếm !");
+                JOptionPane.showMessageDialog(null, "Lá»—i tÃ¬m kiáº¿m !");
             }
         }
     }//GEN-LAST:event_btnTimKiemPTActionPerformed
@@ -413,7 +413,7 @@ public class PhuongTienGUI extends javax.swing.JFrame {
         if(selectedIndex >= 0){
             PhuongTienDTO ptDTO = phuongtienList.get(selectedIndex);
             
-            int option = JOptionPane.showConfirmDialog(this, "Bạn chắc chắn muốn xóa thông tin này ?");
+            int option = JOptionPane.showConfirmDialog(this, "Báº¡n cháº¯c cháº¯n muá»‘n xÃ³a thÃ´ng tin nÃ y ?");
             //System.out.println("option: " + option);
             //yes->0
             //No->1

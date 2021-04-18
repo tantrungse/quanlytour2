@@ -1,4 +1,4 @@
-package DTO;
+package com.myclass.dto;
 
 public class PhuongTienDTO{
     
