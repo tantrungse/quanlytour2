@@ -1,0 +1,134 @@
+package com.myclass.dao;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
+import javax.swing.JOptionPane;
+
+import com.myclass.connector.JDBCConnection;
+import com.myclass.dto.PhuongTienDTO;
+import com.myclass.dto.TaiKhoanDTO;
+
+public class TaiKhoanDAO {
+	public static Connection getConnection() throws SQLException {
+		Connection conn = null;
+
+		try {
+			String url = "jdbc:mysql://localhost:3306/doan";
+			String user = "root";
+			String password = "";
+
+			// create a connection to the database
+			conn = DriverManager.getConnection(url,user,password);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return conn;
+	}
+	public static ArrayList<TaiKhoanDTO> logindaonhanvien()
+	{
+		ArrayList<TaiKhoanDTO> list=new ArrayList<TaiKhoanDTO>();
+		TaiKhoanDTO acc=new TaiKhoanDTO();
+		Connection conn = null;
+		PreparedStatement pstm = null;
+		ResultSet resultSet = null;
+		try {
+			conn = TaiKhoanDAO.getConnection();
+			String query = "SELECT * FROM datalogin\n" + "WHERE`Quyen`=1 ";
+			pstm = conn.prepareStatement(query);
+	
+			
+			resultSet = pstm.executeQuery();
+			
+			if(resultSet.next()) {
+				acc.setTenTK(resultSet.getString("Username"));
+				acc.setMatKhau(resultSet.getString("Password"));
+				acc.setQuyen(resultSet.getInt("Quyen"));
+				list.add(acc);
+			   
+			}
+		}catch (Exception e) {
+		e.printStackTrace();
+		}
+	return list;
+		}
+	public static ArrayList<TaiKhoanDTO>  logindao()
+	{
+		ArrayList<TaiKhoanDTO> list=new ArrayList<TaiKhoanDTO>();
+		TaiKhoanDTO acc=new TaiKhoanDTO();
+		
+		Connection conn = null;
+		PreparedStatement pstm = null;
+		ResultSet resultSet = null;
+		try {
+			conn = TaiKhoanDAO.getConnection();
+			String query = "SELECT * FROM datalogin" ;
+			pstm = conn.prepareStatement(query);
+			
+			
+			
+			resultSet = pstm.executeQuery();
+			
+		if(resultSet.next()) {
+			acc.setTenTK(resultSet.getString("Username"));
+			acc.setMatKhau(resultSet.getString("Password"));
+			acc.setQuyen(resultSet.getInt("Quyen"));
+			list.add(acc);
+		   //JOptionPane.showMessageDialog(null,"Báº¡n Ä‘Ã£ Ä‘Äƒng nháº­p vá»›i quyá»�n admin");
+		}
+		}catch (Exception e) {
+		e.printStackTrace();
+		}
+      return list;
+		}
+	
+    public static ArrayList<TaiKhoanDTO> getAll() {
+    	ArrayList<TaiKhoanDTO> dtos = new ArrayList<>();
+
+        Connection connection = null;
+        Statement statement = null;
+
+        try {
+            //Láº¥y danh sÃ¡ch phÆ°Æ¡ng tiá»‡n
+            connection = JDBCConnection.getJDBCConnection();
+            //Query
+            String sql = "select* from taikhoan";
+            statement = connection.createStatement();
+
+            ResultSet resultSet = statement.executeQuery(sql);
+
+            while (resultSet.next()) {
+                TaiKhoanDTO dto = new TaiKhoanDTO(resultSet.getString(1), resultSet.getString(2), Integer.valueOf(resultSet.getString(3)));
+                dtos.add(dto);
+
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(PhuongTienDAO.class.getName()).log(Level.SEVERE, null, ex);
+        } finally {
+            if (connection != null) {
+                try {
+                    connection.close();
+                } catch (SQLException ex) {
+                    Logger.getLogger(PhuongTienDAO.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
+            if (statement != null) {
+                try {
+                    statement.close();
+                } catch (SQLException ex) {
+                    Logger.getLogger(PhuongTienDAO.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
+        }
+        //ket thuc
+        return dtos;
+    }
+}

@@ -5,14 +5,18 @@ public class TourDTO {
 	private String tenTour;
 	private double giaVe;
 	private String maKHTour;
+	private String maHD;
+	private String tenTK;
 	
 	public TourDTO() {}
 	
-	public TourDTO(String maTour, String tenTour, double giaVe, String maKHTour) {
+	public TourDTO(String maTour, String tenTour, double giaVe, String maKHTour, String maHD, String tenTK) {
 		this.maTour = maTour;
 		this.tenTour = tenTour;
 		this.giaVe = giaVe;
 		this.maKHTour = maKHTour;
+		this.maHD = maHD;
+		this.tenTK = tenTK;
 	}
 
 	public String getMaTour() {
@@ -45,6 +49,22 @@ public class TourDTO {
 
 	public void setMaKHTour(String maKHTour) {
 		this.maKHTour = maKHTour;
+	}
+
+	public String getMaHD() {
+		return maHD;
+	}
+
+	public void setMaHD(String maHD) {
+		this.maHD = maHD;
+	}
+
+	public String getTenTK() {
+		return tenTK;
+	}
+
+	public void setTenTK(String tenTK) {
+		this.tenTK = tenTK;
 	}
 	
 }

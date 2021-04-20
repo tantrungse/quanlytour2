@@ -1,0 +1,93 @@
+package com.myclass.gui;
+
+import java.awt.BorderLayout;
+import java.awt.EventQueue;
+
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+import javax.swing.border.EmptyBorder;
+import javax.swing.JLabel;
+import java.awt.Font;
+import javax.swing.JTextField;
+import javax.swing.JComboBox;
+
+public class AddTaiKhoanFrame extends JFrame {
+
+	private JPanel contentPane;
+	private JTextField txtTenTK;
+	private JTextField textField;
+	private JTextField textField_1;
+
+	/**
+	 * Launch the application.
+	 */
+	public static void main(String[] args) {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					AddTaiKhoanFrame frame = new AddTaiKhoanFrame();
+					frame.setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+	}
+
+	/**
+	 * Create the frame.
+	 */
+	public AddTaiKhoanFrame() {
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setBounds(100, 100, 600, 400);
+		contentPane = new JPanel();
+		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
+		setContentPane(contentPane);
+		contentPane.setLayout(null);
+		
+		JLabel lblNewLabel = new JLabel("Th\u00EAm m\u1EDBi t\u00E0i kho\u1EA3n", JLabel.CENTER);
+		lblNewLabel.setFont(new Font("Tahoma", Font.BOLD | Font.ITALIC, 20));
+		lblNewLabel.setBounds(0, -1, 591, 51);
+		contentPane.add(lblNewLabel);
+		
+		JLabel lblTenTK = new JLabel("Nh\u1EADp t\u00EAn t\u00E0i kho\u1EA3n");
+		lblTenTK.setFont(new Font("Tahoma", Font.PLAIN, 16));
+		lblTenTK.setBounds(21, 70, 149, 30);
+		contentPane.add(lblTenTK);
+		
+		txtTenTK = new JTextField();
+		txtTenTK.setBounds(179, 70, 252, 32);
+		contentPane.add(txtTenTK);
+		txtTenTK.setColumns(10);
+		
+		JLabel lblMatKhau = new JLabel("Nh\u1EADp m\u1EADt kh\u1EA9u");
+		lblMatKhau.setFont(new Font("Tahoma", Font.PLAIN, 16));
+		lblMatKhau.setBounds(21, 117, 149, 30);
+		contentPane.add(lblMatKhau);
+		
+		JLabel lblXacNhanMatKhau = new JLabel("Nh\u1EADp l\u1EA1i m\u1EADt kh\u1EA9u");
+		lblXacNhanMatKhau.setFont(new Font("Tahoma", Font.PLAIN, 16));
+		lblXacNhanMatKhau.setBounds(20, 157, 149, 30);
+		contentPane.add(lblXacNhanMatKhau);
+		
+		textField = new JTextField();
+		textField.setColumns(10);
+		textField.setBounds(179, 115, 252, 32);
+		contentPane.add(textField);
+		
+		textField_1 = new JTextField();
+		textField_1.setColumns(10);
+		textField_1.setBounds(181, 157, 252, 32);
+		contentPane.add(textField_1);
+		
+		JLabel lblQuyen = new JLabel("Ch\u1ECDn quy\u1EC1n");
+		lblQuyen.setFont(new Font("Tahoma", Font.PLAIN, 16));
+		lblQuyen.setBounds(21, 200, 149, 30);
+		contentPane.add(lblQuyen);
+		
+		String[] roles = {"Admin", "Guest"};
+		JComboBox comboBox = new JComboBox(roles);
+		comboBox.setBounds(185, 202, 29, 21);
+		contentPane.add(comboBox);
+	}
+}

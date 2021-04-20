@@ -1,0 +1,86 @@
+package com.myclass.connector;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
+
+public class JDBCConnection {
+	 String username = "root";
+	 String password = "12345678";
+  String URL = "jdbc:mysql://localhost:3306/";
+	String dbname="quanlytour";
+	
+	
+	public JDBCConnection(String username, String password, String uRL, String dbname) {
+		super();
+		this.username = username;
+		this.password = password;
+		URL = uRL;
+		this.dbname = dbname;
+	}
+	public String getUsername() {
+		return username;
+	}
+	public void setUsername(String username) {
+		this.username = username;
+	}
+	public String getPassword() {
+		return password;
+	}
+	public void setPassword(String password) {
+		this.password = password;
+	}
+	public String getURL() {
+		return URL;
+	}
+	public void setURL(String uRL) {
+		URL = uRL;
+	}
+	public String getDbname() {
+		return dbname;
+	}
+	public void setDbname(String dbname) {
+		this.dbname = dbname;
+	}
+	public JDBCConnection() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+	public static Connection getJDBCConnection() { // kết nối bằng cách tạo đối tượng mới vì ko còn là phương thức static
+		String username = "root";
+		String password = "12345678";
+		String URL = "jdbc:mysql://localhost:3306/quanlytourdulich";
+		
+		try {
+			Class.forName("com.mysql.cj.jdbc.Driver");
+			return DriverManager.getConnection(URL, username, password);
+		} catch (ClassNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		return null;
+	}
+	public static Connection getJDBCConnection1(String dbName1) {  // đây là db của tui, các bạn ko cần để ý
+		String username = "root";
+		String password = "";
+		final String URL = "jdbc:mysql://localhost:3306/" + dbName1;
+		
+		try {
+			Class.forName("com.mysql.cj.jdbc.Driver");
+			return DriverManager.getConnection(URL, username, password);
+		} catch (ClassNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		return null;
+	}
+
+}

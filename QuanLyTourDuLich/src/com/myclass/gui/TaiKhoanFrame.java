@@ -62,7 +62,7 @@ public class TaiKhoanFrame extends JFrame {
 	String arr1[]= {"abc123","123abc","xyz456","456xyz","798mno","mno789"};
 	Random r =new Random();
 	String ma=arr1[r.nextInt(6)];
-
+	public static TaiKhoanFrame mInstance;
 
 	/**
 	 * Launch the application.
@@ -72,10 +72,10 @@ public class TaiKhoanFrame extends JFrame {
 			public void run() {
 				try {
 					//Formlogin frame = new Formlogin();
-					TaiKhoanBUS.getInstance().setUndecorated(true);
-					TaiKhoanBUS.getInstance().setBackground(new Color(0,0,0,0));
-					TaiKhoanBUS.getInstance().setVisible(true);
-					TaiKhoanBUS.getInstance().setLocationRelativeTo(null);
+					TaiKhoanFrame.getTaiKhoanFrameInstance().setUndecorated(true);
+					TaiKhoanFrame.getTaiKhoanFrameInstance().setBackground(new Color(0,0,0,0));
+					TaiKhoanFrame.getTaiKhoanFrameInstance().setVisible(true);
+					TaiKhoanFrame.getTaiKhoanFrameInstance().setLocationRelativeTo(null);
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
@@ -266,6 +266,8 @@ public class TaiKhoanFrame extends JFrame {
 					if(ck==1)
 					{
 						JOptionPane.showMessageDialog(null, "ChÃ o má»«ng admin!");
+						Application.getAppInstance().setVisible(true);
+						dispose();
 					}
 					else
 					{
@@ -442,4 +444,11 @@ txtPass.setBorder(BorderFactory.createMatteBorder(0,0,3,0,new Color(128,64,0)));
 			contentPane.add(lblNewLabel);
 		
 	}
+	
+    public static TaiKhoanFrame getTaiKhoanFrameInstance() {
+        if(mInstance == null) 
+            mInstance = new TaiKhoanFrame();
+        return mInstance;
+    }
+   
 }

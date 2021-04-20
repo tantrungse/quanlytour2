@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<qualifiedTypeNameHistroy>
+    <fullyQualifiedTypeName name="DTO.KhachSanDTO"/>
+    <fullyQualifiedTypeName name="DTO.PhuongTienDTO"/>
+    <fullyQualifiedTypeName name="javax.swing.table.DefaultTableCellRenderer"/>
+    <fullyQualifiedTypeName name="java.util.List"/>
+    <fullyQualifiedTypeName name="javax.swing.table.DefaultTableModel"/>
+    <fullyQualifiedTypeName name="com.myclass.dto.TaiKhoanDTO"/>
+    <fullyQualifiedTypeName name="com.myclass.connector.JDBCConnection"/>
+    <fullyQualifiedTypeName name="com.myclass.gui.TaiKhoanFrame"/>
+    <fullyQualifiedTypeName name="com.myclass.dao.TaiKhoanDAO"/>
+    <fullyQualifiedTypeName name="com.myclass.bus.TaiKhoanBUS"/>
+</qualifiedTypeNameHistroy>

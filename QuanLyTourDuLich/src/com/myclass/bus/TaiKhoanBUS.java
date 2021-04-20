@@ -19,13 +19,21 @@ import com.myclass.dto.TaiKhoanDTO;
 import com.myclass.gui.TaiKhoanFrame;
 
 public class TaiKhoanBUS {
-	public static TaiKhoanFrame mInstance;
-	static ArrayList<TaiKhoanDTO> listTaiKhoanDTO;
-    public static TaiKhoanFrame getInstance() {
-       if(mInstance == null) 
-           mInstance = new TaiKhoanFrame();
-       return mInstance;
-   }
+	public static ArrayList<TaiKhoanDTO> listTaiKhoanDTO = TaiKhoanDAO.getAll();
+	private TaiKhoanDAO taiKhoanDAO;
+    
+    public TaiKhoanBUS() {
+    	taiKhoanDAO = new TaiKhoanDAO();
+    }
+   
+    public ArrayList<TaiKhoanDTO> getAll() {
+    	return listTaiKhoanDTO;
+    }
+    
+    public void add(TaiKhoanDTO dto) {
+    	taiKhoanDAO.add(dto);
+    }
+    
    public static int loginbus(String user,String pass)
    {
 	   int ck=0;
@@ -80,6 +88,18 @@ public static void clickOnKey(  final AbstractButton button, String actionName, 
             	}
            }
        } );
-}
+ 	}
+
+	public ArrayList<TaiKhoanDTO> getByTenTK(String tenTK) {
+		return taiKhoanDAO.getByTenTK(tenTK);
+	}
+
+	public void update(TaiKhoanDTO dto) {
+		taiKhoanDAO.update(dto);
+	}
+
+	public void deleteByTenTK(String tenTK) {
+		taiKhoanDAO.deleteByTenTK(tenTK);
+	}
 }
 
