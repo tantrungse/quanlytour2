@@ -1,61 +1,77 @@
-package com.myclass.dto;
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package DTO;
 
+/**
+ *
+ * @author Thin
+ */
 public class CTThuChiDTO {
-	private String maCTThuChi;
-	private double tongThu;
-	private double tongChi;
-	private double doanhThu;
-	private String maCTKHTour;
-	
-	public CTThuChiDTO() {}
+    private String maCTTC;  //mã chi tiết thu chi
+    private String maCTKH; //mã chi tiết kế hoạch tour
+    private int tongChi;
+    private int tongThu;
+    private int doanhThu;
 
-	public CTThuChiDTO(String maCTThuChi, double tongThu, double tongChi, double doanhThu, String maCTKHTour) {
-		super();
-		this.maCTThuChi = maCTThuChi;
-		this.tongThu = tongThu;
-		this.tongChi = tongChi;
-		this.doanhThu = doanhThu;
-		this.maCTKHTour = maCTKHTour;
-	}
+    public CTThuChiDTO() {
+    }
 
-	public String getMaCTThuChi() {
-		return maCTThuChi;
-	}
+    public CTThuChiDTO(String maCTKH, int tongChi, int tongThu, int doanhThu) {
+        this.maCTKH = maCTKH;
+        this.tongChi = tongChi;
+        this.tongThu = tongThu;
+        this.doanhThu = doanhThu;
+    }
 
-	public void setMaCTThuChi(String maCTThuChi) {
-		this.maCTThuChi = maCTThuChi;
-	}
+    public CTThuChiDTO(String maCTTC, String maCTKH, int tongChi, int tongThu, int doanhThu) {
+        this.maCTTC = maCTTC;
+        this.maCTKH = maCTKH;
+        this.tongChi = tongChi;
+        this.tongThu = tongThu;
+        this.doanhThu = doanhThu;
+    }
 
-	public double getTongThu() {
-		return tongThu;
-	}
+    public String getMaCTTC() {
+        return maCTTC;
+    }
 
-	public void setTongThu(double tongThu) {
-		this.tongThu = tongThu;
-	}
+    public void setMaCTTC(String maCTTC) {
+        this.maCTTC = maCTTC;
+    }
 
-	public double getTongChi() {
-		return tongChi;
-	}
+    public String getMaCTKH() {
+        return maCTKH;
+    }
 
-	public void setTongChi(double tongChi) {
-		this.tongChi = tongChi;
-	}
+    public void setMaCTKH(String maCTKH) {
+        this.maCTKH = maCTKH;
+    }
 
-	public double getDoanhThu() {
-		return doanhThu;
-	}
+    public int getTongChi() {
+        return tongChi;
+    }
 
-	public void setDoanhThu(double doanhThu) {
-		this.doanhThu = doanhThu;
-	}
+    public void setTongChi(int tongChi) {
+        this.tongChi = tongChi;
+    }
 
-	public String getMaCTKHTour() {
-		return maCTKHTour;
-	}
+    public int getTongThu() {
+        return tongThu;
+    }
 
-	public void setMaCTKHTour(String maCTKHTour) {
-		this.maCTKHTour = maCTKHTour;
-	}
-	
+    public void setTongThu(int tongThu) {
+        this.tongThu = tongThu;
+    }
+
+    public int getDoanhThu() {
+        return doanhThu;
+    }
+
+    public void setDoanhThu(int doanhThu) {
+        this.doanhThu = doanhThu;
+    }
+    
 }
