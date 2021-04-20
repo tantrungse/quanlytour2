@@ -1,41 +1,66 @@
-package com.myclass.dto;
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package DTO;
 
+/**
+ *
+ * @author Thin
+ */
 public class DiaDiemThamQuanDTO {
-	private String maDiaDiem;
-	private String tenDiaDiem;
-	private String diaChi;
-	
-	public DiaDiemThamQuanDTO() {}
+    private String maDD; // mã địa điểm
+    private String tenDD;   //tên địa điểm
+    private String ND;  //nội dung tham quan
+    private String diachi;
 
-	public DiaDiemThamQuanDTO(String maDiaDiem, String tenDiaDiem, String diaChi) {
-		super();
-		this.maDiaDiem = maDiaDiem;
-		this.tenDiaDiem = tenDiaDiem;
-		this.diaChi = diaChi;
-	}
+    public DiaDiemThamQuanDTO() {
+    }
 
-	public String getMaDiaDiem() {
-		return maDiaDiem;
-	}
+    public DiaDiemThamQuanDTO(String tenDD, String ND, String diachi) {
+        this.tenDD = tenDD;
+        this.ND = ND;
+        this.diachi = diachi;
+    }
 
-	public void setMaDiaDiem(String maDiaDiem) {
-		this.maDiaDiem = maDiaDiem;
-	}
+    public DiaDiemThamQuanDTO(String maDD, String tenDD, String ND, String diachi) {
+        this.maDD = maDD;
+        this.tenDD = tenDD;
+        this.ND = ND;
+        this.diachi = diachi;
+    }
 
-	public String getTenDiaDiem() {
-		return tenDiaDiem;
-	}
+    public String getMaDD() {
+        return maDD;
+    }
 
-	public void setTenDiaDiem(String tenDiaDiem) {
-		this.tenDiaDiem = tenDiaDiem;
-	}
+    public void setMaDD(String maDD) {
+        this.maDD = maDD;
+    }
 
-	public String getDiaChi() {
-		return diaChi;
-	}
+    public String getTenDD() {
+        return tenDD;
+    }
 
-	public void setDiaChi(String diaChi) {
-		this.diaChi = diaChi;
-	}
-	
+    public void setTenDD(String tenDD) {
+        this.tenDD = tenDD;
+    }
+
+    public String getND() {
+        return ND;
+    }
+
+    public void setND(String ND) {
+        this.ND = ND;
+    }
+
+    public String getDiachi() {
+        return diachi;
+    }
+
+    public void setDiachi(String diachi) {
+        this.diachi = diachi;
+    }
+
 }

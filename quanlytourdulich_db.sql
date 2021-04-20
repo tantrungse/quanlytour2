@@ -89,8 +89,9 @@ ALTER TABLE CTKeHoachTour ADD MaCTThuChi VARCHAR(10) NOT NULL;
 -- DiaDiemThamQuan (MaDiaDiem, TenDiaDiem, NoiDung(list), DiaChi)
 CREATE TABLE IF NOT EXISTS DiaDiemThamQuan (
 	MaDiaDiem VARCHAR(10) NOT NULL,
-    TenDiaDiem VARCHAR(50),
-    DiaChi TEXT,
+    TenDiaDiem VARCHAR(50) NOT NULL,
+    NoiDung VARCHAR(500),
+    DiaChi VARCHAR(100),
     PRIMARY KEY (MaDiaDiem)
 );
 
@@ -107,7 +108,7 @@ CREATE TABLE IF NOT EXISTS PhuongTien (
 CREATE TABLE IF NOT EXISTS NhaHang (
 	MaNhaHang VARCHAR(10) NOT NULL,
     TenNhaHang VARCHAR(50),
-    DiaChi TEXT,
+    DiaChi VARCHAR(100),
     ChiPhiTrenNguoi DOUBLE,
     PRIMARY KEY (MaNhaHang)
 );
@@ -116,7 +117,7 @@ CREATE TABLE IF NOT EXISTS NhaHang (
 CREATE TABLE IF NOT EXISTS KhachSan (
 	MaKhachSan VARCHAR(10) NOT NULL,
     TenKhachSan VARCHAR(50),
-    DiaChi TEXT,
+    DiaChi VARCHAR(100),
     ChiPhiTrenNguoi DOUBLE,
     PRIMARY KEY (MaKhachSan)
 );
