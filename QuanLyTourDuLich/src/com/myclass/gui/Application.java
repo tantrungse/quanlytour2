@@ -40,8 +40,10 @@ public class Application extends JFrame {
 
 	private JPanel contentPane;
 	private CardLayout cardLayout;
-	private DefaultTableModel model;
-	private JTable table;
+	private DefaultTableModel taiKhoanTblModel;
+	private DefaultTableModel tourTblModel;
+	private JTable tblTaiKhoan;
+	private JTable tblTour;
 	private JTextField textField;
 	private TaiKhoanBUS taiKhoanBUS;
 	public static Application appInstance;
@@ -107,6 +109,23 @@ public class Application extends JFrame {
 		cardsPane.add(cardTourMgmt, "name_4568411886400");
 		cardTourMgmt.setLayout(null);
 		
+		JScrollPane tourScrollPane = new JScrollPane();
+		tourScrollPane.setBounds(125, 250, 300, 300);
+		cardTourMgmt.add(tourScrollPane);
+		
+		tblTour = new JTable();
+		tblTour.setFont(new Font("Tahoma", Font.PLAIN, 16));
+		tblTour.setRowHeight(50);
+		tourTblModel = new DefaultTableModel(
+				new Object[][] {
+				},
+				new String[] {
+					"Tài khoản", "Mật khẩu", "Quyền"
+				}
+			);
+		tblTour.setModel(taiKhoanTblModel);
+		loadTblTaiKhoan();
+		
 		JLabel lblTourCard = new JLabel("Tour card");
 		lblTourCard.setBounds(31, 22, 286, 59);
 		lblTourCard.setFont(new Font("Tahoma", Font.BOLD | Font.ITALIC, 30));
@@ -116,24 +135,25 @@ public class Application extends JFrame {
 		cardLayout.addLayoutComponent(cardAdminMgmt, "cardAdminMgmt");
 		cardAdminMgmt.setBounds(75, 250, 600, 300);
 		
-		JScrollPane scrollPane = new JScrollPane();
-		scrollPane.setBounds(125, 250, 300, 300);
-		cardAdminMgmt.add(scrollPane);
+		JScrollPane taiKhoanScrollPane = new JScrollPane();
+		taiKhoanScrollPane.setBounds(125, 250, 300, 300);
+		cardAdminMgmt.add(taiKhoanScrollPane);
 		
-		String[] colsName = {"Tài khoản", "Mật khẩu", "Quyền"};
-		table = new JTable();
-		table.setFont(new Font("Tahoma", Font.PLAIN, 16));
-		table.setRowHeight(50);
-		model = new DefaultTableModel(
+		tblTaiKhoan = new JTable();
+		tblTaiKhoan.setFont(new Font("Tahoma", Font.PLAIN, 16));
+		tblTaiKhoan.setRowHeight(50);
+		taiKhoanTblModel = new DefaultTableModel(
 				new Object[][] {
 				},
-				colsName
+				new String[] {
+					"Tài khoản", "Mật khẩu", "Quyền"
+				}
 			);
-		table.setModel(model);
-		loadData();
+		tblTaiKhoan.setModel(taiKhoanTblModel);
+		loadTblTaiKhoan();
 		
-		scrollPane.setViewportView(table);
-		table.setFillsViewportHeight(true);
+		taiKhoanScrollPane.setViewportView(tblTaiKhoan);
+		tblTaiKhoan.setFillsViewportHeight(true);
 		
 		JLabel lblNewLabel_1 = new JLabel("Tìm kiếm:");
 		lblNewLabel_1.setFont(new Font("Tahoma", Font.ITALIC, 16));
@@ -149,9 +169,9 @@ public class Application extends JFrame {
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				ArrayList<TaiKhoanDTO> listKQ = taiKhoanBUS.getByTenTK(textField.getText());
-				model.setRowCount(0); // xoa tat ca row
+				taiKhoanTblModel.setRowCount(0); // xoa tat ca row
 				for(TaiKhoanDTO dto : listKQ) {
-					model.addRow(new Object[] {
+					taiKhoanTblModel.addRow(new Object[] {
 							dto.getTenTK(), dto.getMatKhau(), dto.getQuyen()
 					});
 				}
@@ -164,8 +184,8 @@ public class Application extends JFrame {
 		JButton btnNewButton_1 = new JButton("Tải lại");
 		btnNewButton_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				model.setRowCount(0);
-				loadData();
+				taiKhoanTblModel.setRowCount(0);
+				loadTblTaiKhoan();
 			}
 		});
 		btnNewButton_1.setFont(new Font("Tahoma", Font.PLAIN, 16));
@@ -186,11 +206,11 @@ public class Application extends JFrame {
 		JButton btnNewButton_3 = new JButton("Xóa");
 		btnNewButton_3.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				int selectedRow = table.getSelectedRow();
-				String tenTK = String.valueOf(table.getValueAt(selectedRow, 0));
+				int selectedRow = tblTaiKhoan.getSelectedRow();
+				String tenTK = String.valueOf(tblTaiKhoan.getValueAt(selectedRow, 0));
 				
 				taiKhoanBUS.deleteByTenTK(tenTK);
-				model.removeRow(selectedRow);
+				taiKhoanTblModel.removeRow(selectedRow);
 			}
 		});
 		btnNewButton_3.setFont(new Font("Tahoma", Font.PLAIN, 16));
@@ -261,9 +281,9 @@ public class Application extends JFrame {
 		menuSidePane.add(lblVehicleMgmt);
 	}
 	
-	public void loadData() {
+	public void loadTblTaiKhoan() {
 		for(TaiKhoanDTO dto : TaiKhoanBUS.listTaiKhoanDTO) {
-			model.addRow(new Object[] {
+			taiKhoanTblModel.addRow(new Object[] {
 					dto.getTenTK(), dto.getMatKhau(), dto.getQuyen()
 			});
 		}

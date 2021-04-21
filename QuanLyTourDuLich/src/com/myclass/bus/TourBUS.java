@@ -1,30 +1,34 @@
 package com.myclass.bus;
 
+import java.sql.SQLException;
 import java.util.ArrayList;
 
 import com.myclass.dao.TourDAO;
 import com.myclass.dto.TourDTO;
 
 public class TourBUS {
-	static ArrayList<TourDTO> listTour;
+	public static ArrayList<TourDTO> listTour;
+	private TourDAO tourDAO;
 	
-	public TourBUS() {}
+	public TourBUS() {
+		tourDAO = new TourDAO();
+	}
 	
-	public TourDAO getById(String maTour) {
+	public TourDTO getById(String maTour) {
 		
-		return null;
+		return tourDAO.getById(maTour);
 	}
 	
 	
-	public void add(TourDTO newTour) {
-		
+	public void add(TourDTO dto) throws SQLException {
+		tourDAO.add(dto);
 	}
 	
-	public void update(TourDTO updateTour) {
-		
+	public void update(TourDTO dto) throws SQLException {
+		tourDAO.update(dto);
 	}
 	
-	public void deteleById(String maTour) {
-		
+	public void deteleById(String maTour) throws SQLException {
+		tourDAO.deteleById(maTour);
 	}
 }
