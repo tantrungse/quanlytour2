@@ -6,8 +6,13 @@
     <fullyQualifiedTypeName name="java.util.List"/>
     <fullyQualifiedTypeName name="javax.swing.table.DefaultTableModel"/>
     <fullyQualifiedTypeName name="com.myclass.dto.TaiKhoanDTO"/>
-    <fullyQualifiedTypeName name="com.myclass.connector.JDBCConnection"/>
     <fullyQualifiedTypeName name="com.myclass.gui.TaiKhoanFrame"/>
     <fullyQualifiedTypeName name="com.myclass.dao.TaiKhoanDAO"/>
     <fullyQualifiedTypeName name="com.myclass.bus.TaiKhoanBUS"/>
+    <fullyQualifiedTypeName name="java.sql.Statement"/>
+    <fullyQualifiedTypeName name="java.sql.SQLException"/>
+    <fullyQualifiedTypeName name="com.myclass.connector.JDBCConnection"/>
+    <fullyQualifiedTypeName name="com.myclass.dto.KeHoachTourDTO"/>
+    <fullyQualifiedTypeName name="com.myclass.dao.KHTourDAO"/>
+    <fullyQualifiedTypeName name="com.myclass.bus.TourBUS"/>
 </qualifiedTypeNameHistroy>
