@@ -28,7 +28,7 @@ public class TourBUS {
 		tourDAO.update(dto);
 	}
 	
-	public void deteleById(String maTour) throws SQLException {
-		tourDAO.deteleById(maTour);
+	public void deleteById(String maTour) {
+		tourDAO.deleteById(maTour);
 	}
 }

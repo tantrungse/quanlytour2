@@ -1,14 +1,14 @@
 package com.myclass.dto;
 
-public class KeHoachTourDTO {
+public class KHTourDTO {
 	private String maKeHoach;
 	private String ngayBatDau;
 	private String ngayKetThuc;
 	private String maCTKH;
 	
-	public KeHoachTourDTO() {}
+	public KHTourDTO() {}
 
-	public KeHoachTourDTO(String maKeHoach, String ngayBatDau, String ngayKetThuc, String maCTKH) {
+	public KHTourDTO(String maKeHoach, String ngayBatDau, String ngayKetThuc, String maCTKH) {
 		super();
 		this.maKeHoach = maKeHoach;
 		this.ngayBatDau = ngayBatDau;

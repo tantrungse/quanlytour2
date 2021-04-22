@@ -103,18 +103,22 @@ public class TourDAO {
 		}
 	}
 	
-	public void deteleById(String id) throws SQLException {
+	public void deleteById(String maTour) {
 		try {
 			conn = JDBCConnection.getJDBCConnection();
 			String sql = "DELETE FROM Tour WHERE MaTour = ?";
 			pstmt = conn.prepareStatement(sql);
-			pstmt.setString(1, id);
+			pstmt.setString(1, maTour);
 			int rowEffects = pstmt.executeUpdate();
 			System.out.println("Row effects: " + rowEffects);
 		} catch (SQLException e) {
 			e.printStackTrace();
 		} finally {
-			conn.close();
+			try {
+				conn.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
 		}
 	}
 }
