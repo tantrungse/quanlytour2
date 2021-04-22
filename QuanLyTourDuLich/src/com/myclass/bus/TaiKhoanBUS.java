@@ -1,10 +1,6 @@
 package com.myclass.bus;
 
 import java.awt.event.ActionEvent;
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
@@ -16,7 +12,6 @@ import javax.swing.KeyStroke;
 
 import com.myclass.dao.TaiKhoanDAO;
 import com.myclass.dto.TaiKhoanDTO;
-import com.myclass.gui.TaiKhoanFrame;
 
 public class TaiKhoanBUS {
 	public static ArrayList<TaiKhoanDTO> listTaiKhoanDTO = TaiKhoanDAO.getAll();

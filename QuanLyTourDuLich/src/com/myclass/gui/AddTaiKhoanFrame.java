@@ -127,6 +127,7 @@ public class AddTaiKhoanFrame extends JFrame {
 				TaiKhoanBUS.listTaiKhoanDTO.add(dto);
 				TaiKhoanDAO dao=new TaiKhoanDAO();
 				dao.add(dto);
+				Application.getAppInstance().loadTblTaiKhoan();
 			}});
 		btnNewButton.setFont(new Font("Tahoma", Font.PLAIN, 16));
 		btnNewButton.setBounds(120, 269, 106, 28);

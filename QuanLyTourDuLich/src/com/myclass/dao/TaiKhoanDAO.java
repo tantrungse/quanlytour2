@@ -18,21 +18,10 @@ import com.myclass.dto.PhuongTienDTO;
 import com.myclass.dto.TaiKhoanDTO;
 
 public class TaiKhoanDAO {
-	public static Connection getConnection() throws SQLException {
-		Connection conn = null;
-
-		try {
-			String url = "jdbc:mysql://localhost:3306/quanlytourdulich";
-			String user = "root";
-			String password = "12345678";
-
-			// create a connection to the database
-			conn = DriverManager.getConnection(url,user,password);
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-		return conn;
-	}
+	Connection conn;
+	PreparedStatement pstmt;
+	ResultSet rs;
+	
 	public static ArrayList<TaiKhoanDTO> logindaonhanvien()
 	{
 		ArrayList<TaiKhoanDTO> list=new ArrayList<TaiKhoanDTO>();
@@ -41,7 +30,7 @@ public class TaiKhoanDAO {
 		PreparedStatement pstm = null;
 		ResultSet resultSet = null;
 		try {
-			conn = TaiKhoanDAO.getConnection();
+			conn = JDBCConnection.getJDBCConnection();
 			String query = "SELECT * FROM taikhoan\n" + "WHERE`Quyen`=1 ";
 			pstm = conn.prepareStatement(query);
 	
@@ -69,7 +58,7 @@ public class TaiKhoanDAO {
 		PreparedStatement pstm = null;
 		ResultSet resultSet = null;
 		try {
-			conn = TaiKhoanDAO.getConnection();
+			conn = JDBCConnection.getJDBCConnection();
 			String query = "SELECT * FROM taikhoan" ;
 			pstm = conn.prepareStatement(query);
 			
@@ -160,8 +149,29 @@ public class TaiKhoanDAO {
     	return null;
     }
 	public void update(TaiKhoanDTO dto) {
+		try {	
+			conn = JDBCConnection.getJDBCConnection();
+			String sql = "UPDATE TaiKhoan SET "
+					+ "MatKhau = ?, Quyen = ? "
+					+ "WHERE TenTK = ?;";
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, dto.getMatKhau());
+			pstmt.setDouble(2, dto.getQuyen());
+			pstmt.setString(3, dto.getTenTK());
 		
+			int rowEffects = pstmt.executeUpdate();
+			System.out.println("Row effects: " + rowEffects);
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+		try {
+			conn.close();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		}
 	}
+	
 	public void deleteByTenTK(String tenTK) {
 		Connection conn = null;
 		Statement stmt = null;
