@@ -95,47 +95,39 @@ CREATE TABLE IF NOT EXISTS DiaDiemThamQuan (
     PRIMARY KEY (MaDiaDiem)
 );
 
--- PhuongTien (MaPhuongTien, TenPhuongTien, DiaChi, SoDT,SoChoNgoi, ChiPhi)
+-- PhuongTien (MaPhuongTien, TenPhuongTien, ChiPhi, SoChoNgoi)
 CREATE TABLE IF NOT EXISTS PhuongTien (
 	MaPhuongTien VARCHAR(10) NOT NULL,
     TenPhuongTien VARCHAR(50),
-    DiaChi VARCHAR(100),
-    SoDT VARCHAR(15),  
-    SoChoNgoi integer,
-    ChiPhi integer,
+    ChiPhi DOUBLE,
+    SoChoNgoi INT,
     PRIMARY KEY (MaPhuongTien)
 );
 
--- NhaHang (MaNhaHang, TenNhaHang, DiaChi, Website, SoDT, ChiPhi)
+-- NhaHang (MaNhaHang, TenNhaHang, DiaChi, ChiPhiTrenNguoi)
 CREATE TABLE IF NOT EXISTS NhaHang (
 	MaNhaHang VARCHAR(10) NOT NULL,
     TenNhaHang VARCHAR(50),
     DiaChi VARCHAR(100),
-    Website VARCHAR(100),
-    SoDT VARCHAR(15),
-    ChiPhi integer,
+    ChiPhiTrenNguoi DOUBLE,
     PRIMARY KEY (MaNhaHang)
 );
 
--- KhachSan (MaKhachSan, TenKhachSan, DiaChi, Website, SoDT, ChiPhi)
+-- KhachSan (MaKhachSan, TenKhachSan, DiaChi, ChiPhiTrenNguoi)
 CREATE TABLE IF NOT EXISTS KhachSan (
 	MaKhachSan VARCHAR(10) NOT NULL,
     TenKhachSan VARCHAR(50),
     DiaChi VARCHAR(100),
-    Website VARCHAR(100),
-    SoDT VARCHAR(15),
-    ChiPhi integer,
+    ChiPhiTrenNguoi DOUBLE,
     PRIMARY KEY (MaKhachSan)
 );
 
--- CTThuChi (MaCTThuChi, MaCTKeHoach, TongThu, TongChi, DoanThu, MaCTKH)
+-- CTThuChi (MaCTThuChi, TongThu, TongChi, DoanThu, MaCTKH)
 CREATE TABLE IF NOT EXISTS CTThuChi (
 	MaCTThuChi VARCHAR(10) NOT NULL,
-    MaCTKeHoach VARCHAR(10),
-
-	TongThu integer,
-    TongChi integer,
-    DoanhThu integer,
+	TongThu DOUBLE,
+    TongChi DOUBLE,
+    DoanhThu DOUBLE,
     PRIMARY KEY (MaCTThuChi)
 );
 
