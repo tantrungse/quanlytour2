@@ -4,10 +4,8 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Statement;
 import java.util.ArrayList;
 
-import com.myclass.bus.TourBUS;
 import com.myclass.connector.JDBCConnection;
 import com.myclass.dto.TourDTO;
 
@@ -25,7 +23,7 @@ public class TourDAO {
 		return null;
 	}
 	
-	public ArrayList<TourDTO> getAll() throws SQLException {
+	public ArrayList<TourDTO> getAll() {
 		ArrayList<TourDTO> dtos;
 		try {
 			conn = JDBCConnection.getJDBCConnection();
@@ -41,7 +39,6 @@ public class TourDAO {
 				dto.setGiaVe(rs.getDouble("GiaVe"));
 				dto.setMaKHTour(rs.getString("MaKHTour"));
 				dto.setMaHD(rs.getString("MaHD"));
-				dto.setTenTK(rs.getString("TenTK"));
 				dtos.add(dto);
 			}
 			
@@ -49,18 +46,22 @@ public class TourDAO {
 		} catch (SQLException e) {
 			e.printStackTrace();
 		} finally {
-			conn.close();
+			try {
+				conn.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
 		}
 		
 		return null;
 	}
 	
-	public void add(TourDTO dto) throws SQLException {
+	public void add(TourDTO dto) {
 		try {
 			conn = JDBCConnection.getJDBCConnection();
 			String sql = "INSERT INTO "
-					+ "Tour(`MaTour`, `TenTour`, `GiaVe`, `MaKHTour`, `MaHD`, `TenTK`)"
-					+ "VALUES (?, ?, ?, ?, ?, ?)";
+					+ "Tour(`MaTour`, `TenTour`, `GiaVe`, `MaKHTour`, `MaHD`)"
+					+ "VALUES (?, ?, ?, ?, ?)";
 			
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setString(1, dto.getMaTour());
@@ -68,38 +69,43 @@ public class TourDAO {
 			pstmt.setDouble(3, dto.getGiaVe());
 			pstmt.setString(4, dto.getMaKHTour());
 			pstmt.setString(5, dto.getMaHD());
-			pstmt.setString(6, dto.getTenTK());
 			
 			int rowEffects = pstmt.executeUpdate();
 			System.out.println("Row effects: " + rowEffects);
 		} catch(SQLException e) {
 			e.printStackTrace();
 		} finally {
-			conn.close();
+			try {
+				conn.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
 		}
 	}
 	
-	public void update(TourDTO dto) throws SQLException {
+	public void update(TourDTO dto) {
 		try {
 			conn = JDBCConnection.getJDBCConnection();
 			String sql = "UPDATE Tour SET "
-					+ "TenTour = ?, GiaVe = ?, MaKHTour = ?, "
-					+ "MaHD = ?, TenTK = ?"
+					+ "TenTour = ?, GiaVe = ?, MaKHTour = ?, MaHD = ?"
 					+ "WHERE MaTour = ?";
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setString(1, dto.getTenTour());
 			pstmt.setDouble(2, dto.getGiaVe());
 			pstmt.setString(3, dto.getMaKHTour());
 			pstmt.setString(4, dto.getMaHD());
-			pstmt.setString(5, dto.getTenTK());
-			pstmt.setString(6, dto.getMaTour());
+			pstmt.setString(5, dto.getMaTour());
 			
 			int rowEffects = pstmt.executeUpdate();
 			System.out.println("Row effects: " + rowEffects);
 		} catch (SQLException e) {
 			e.printStackTrace();
 		} finally {
-			conn.close();
+			try {
+				conn.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
 		}
 	}
 	

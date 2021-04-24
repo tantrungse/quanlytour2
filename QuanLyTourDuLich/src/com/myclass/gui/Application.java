@@ -51,9 +51,6 @@ public class Application extends JFrame {
 	private JTable tblTour;
 	
 	public static Application appInstance;
-	private JTextField txtTenTaiKhoan;
-	private JTextField txtMatKhau;
-	private JComboBox cbQuyen;
 
 	/**
 	 * Launch the application.
@@ -88,7 +85,6 @@ public class Application extends JFrame {
 		contentPane.setLayout(null);
 		
 		// ===== SIDE START HERE =====
-		
 		sidePane = new JPanel();
 		sidePane.setBackground(Color.GRAY);
 		sidePane.setBounds(0, 0, 250, 800);
@@ -143,7 +139,6 @@ public class Application extends JFrame {
 		lblVehicleMgmt.setForeground(Color.WHITE);
 		lblVehicleMgmt.setFont(new Font("Consolas", Font.BOLD, 16));
 		menuSidePane.add(lblVehicleMgmt);
-
 		// ===== SIDE END HERE ===== 
 		
 		cardsPane = new JPanel(new CardLayout());
@@ -153,14 +148,12 @@ public class Application extends JFrame {
 		cardLayout = (CardLayout) cardsPane.getLayout();
 		
 		// ===== ADMIN LAYOUT START HERE =====
-		
 		JPanel cardTaiKhoanMgmt = new JPanel();
 		cardsPane.add(cardTaiKhoanMgmt, "name_4535705721900");
 		cardTaiKhoanMgmt.setLayout(null);
-//		cardAdminMgmt.setBounds(75, 250, 950, 300);
 		cardLayout.addLayoutComponent(cardTaiKhoanMgmt, "cardAdminMgmt");
 		
-		JLabel lblNewLabel = new JLabel("Trang tài khoản");
+		JLabel lblNewLabel = new JLabel("Trang quản lý tài khoản");
 		lblNewLabel.setBounds(0, 0, 400, 100);
 		lblNewLabel.setFont(new Font("Tahoma", Font.BOLD | Font.ITALIC, 30));
 		cardTaiKhoanMgmt.add(lblNewLabel);
@@ -170,7 +163,7 @@ public class Application extends JFrame {
 		lblTenTaiKhoan.setBounds(50, 150, 150, 30);
 		cardTaiKhoanMgmt.add(lblTenTaiKhoan);
 		
-		txtTenTaiKhoan = new JTextField();
+		JTextField txtTenTaiKhoan = new JTextField();
 		txtTenTaiKhoan.setColumns(10);
 		txtTenTaiKhoan.setBounds(200, 150, 300, 30);
 		cardTaiKhoanMgmt.add(txtTenTaiKhoan);
@@ -180,7 +173,7 @@ public class Application extends JFrame {
 		lblMatKhau.setBounds(50, 200, 150, 30);
 		cardTaiKhoanMgmt.add(lblMatKhau);
 		
-		txtMatKhau = new JTextField();
+		JTextField txtMatKhau = new JTextField();
 		txtMatKhau.setColumns(10);
 		txtMatKhau.setBounds(200, 200, 300, 30);
 		cardTaiKhoanMgmt.add(txtMatKhau);
@@ -196,72 +189,6 @@ public class Application extends JFrame {
 		cbQuyen.setFont(new Font("Tahoma", Font.PLAIN, 16));
 		cbQuyen.setBounds(200, 250, 100, 30);
 		cardTaiKhoanMgmt.add(cbQuyen);
-		
-		JScrollPane taiKhoanScrollPane = new JScrollPane();
-		taiKhoanScrollPane.setBounds(150, 450, 300, 300);
-		cardTaiKhoanMgmt.add(taiKhoanScrollPane);
-		
-		tblTaiKhoan = new JTable();
-		tblTaiKhoan.addMouseListener(new MouseAdapter() {
-			@Override
-			public void mouseClicked(MouseEvent e) {
-				int indexRowSelected = tblTaiKhoan.getSelectedRow();
-				
-				txtTenTaiKhoan.setText((String) taiKhoanTblModel.getValueAt(indexRowSelected, 0));
-				txtMatKhau.setText((String) taiKhoanTblModel.getValueAt(indexRowSelected, 1));
-			}
-		});
-		tblTaiKhoan.setFont(new Font("Tahoma", Font.PLAIN, 16));
-		tblTaiKhoan.setRowHeight(50);
-		taiKhoanTblModel = new DefaultTableModel(
-				new Object[][] {
-				},
-				new String[] {
-					"Tài khoản", "Mật khẩu", "Quyền"
-				}
-			);
-		tblTaiKhoan.setModel(taiKhoanTblModel);
-		loadTblTaiKhoan();
-		
-		taiKhoanScrollPane.setViewportView(tblTaiKhoan);
-		tblTaiKhoan.setFillsViewportHeight(true);
-		
-		JLabel lblTaiKhoanSearch = new JLabel("Tìm kiếm:");
-		lblTaiKhoanSearch.setFont(new Font("Tahoma", Font.ITALIC, 16));
-		lblTaiKhoanSearch.setBounds(20, 400, 80, 30);
-		cardTaiKhoanMgmt.add(lblTaiKhoanSearch);
-		
-		JTextField txtTaiKhoanSearch = new JTextField();
-		txtTaiKhoanSearch.setBounds(100, 400, 200, 30);
-		cardTaiKhoanMgmt.add(txtTaiKhoanSearch);
-		txtTaiKhoanSearch.setColumns(10);
-		
-		JButton btnTaiKhoanSearch = new JButton("Tìm\r\n");
-		btnTaiKhoanSearch.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				ArrayList<TaiKhoanDTO> listKQ = taiKhoanBUS.getByTenTK(txtTaiKhoanSearch.getText());
-				taiKhoanTblModel.setRowCount(0); // xoa tat ca row
-				for(TaiKhoanDTO dto : listKQ) {
-					taiKhoanTblModel.addRow(new Object[] {
-							dto.getTenTK(), dto.getMatKhau(), dto.getQuyen()
-					});
-				}
-			}
-		});
-		btnTaiKhoanSearch.setFont(new Font("Tahoma", Font.PLAIN, 16));
-		btnTaiKhoanSearch.setBounds(310, 400, 80, 30);
-		cardTaiKhoanMgmt.add(btnTaiKhoanSearch);
-		
-		JButton btnTaiKhoanReload = new JButton("Tải lại bảng");
-		btnTaiKhoanReload.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				taiKhoanTblModel.setRowCount(0);
-				loadTblTaiKhoan();
-			}
-		});
-		btnTaiKhoanReload.setFont(new Font("Tahoma", Font.PLAIN, 16));
-		btnTaiKhoanReload.setBounds(475, 450, 120, 30);
-		cardTaiKhoanMgmt.add(btnTaiKhoanReload);
 		
 		JButton btnTaiKhoanAdd = new JButton("Thêm");
 		btnTaiKhoanAdd.addActionListener(new ActionListener() {
@@ -305,6 +232,72 @@ public class Application extends JFrame {
 		btnTaiKhoanUpdate.setBounds(150, 300, 80, 30);
 		cardTaiKhoanMgmt.add(btnTaiKhoanUpdate);
 		
+		JScrollPane taiKhoanScrollPane = new JScrollPane();
+		taiKhoanScrollPane.setBounds(150, 450, 300, 300);
+		cardTaiKhoanMgmt.add(taiKhoanScrollPane);
+		
+		JLabel lblTaiKhoanSearch = new JLabel("Tìm kiếm:");
+		lblTaiKhoanSearch.setFont(new Font("Tahoma", Font.ITALIC, 16));
+		lblTaiKhoanSearch.setBounds(20, 400, 80, 30);
+		cardTaiKhoanMgmt.add(lblTaiKhoanSearch);
+		
+		JTextField txtTaiKhoanSearch = new JTextField();
+		txtTaiKhoanSearch.setBounds(100, 400, 200, 30);
+		cardTaiKhoanMgmt.add(txtTaiKhoanSearch);
+		txtTaiKhoanSearch.setColumns(10);
+		
+		JButton btnTaiKhoanSearch = new JButton("Tìm\r\n");
+		btnTaiKhoanSearch.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				ArrayList<TaiKhoanDTO> listKQ = taiKhoanBUS.getByTenTK(txtTaiKhoanSearch.getText());
+				taiKhoanTblModel.setRowCount(0); // xoa tat ca row
+				for(TaiKhoanDTO dto : listKQ) {
+					taiKhoanTblModel.addRow(new Object[] {
+							dto.getTenTK(), dto.getMatKhau(), dto.getQuyen()
+					});
+				}
+			}
+		});
+		btnTaiKhoanSearch.setFont(new Font("Tahoma", Font.PLAIN, 16));
+		btnTaiKhoanSearch.setBounds(310, 400, 80, 30);
+		cardTaiKhoanMgmt.add(btnTaiKhoanSearch);
+		
+		tblTaiKhoan = new JTable();
+		tblTaiKhoan.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				int indexRowSelected = tblTaiKhoan.getSelectedRow();
+				
+				txtTenTaiKhoan.setText((String) taiKhoanTblModel.getValueAt(indexRowSelected, 0));
+				txtMatKhau.setText((String) taiKhoanTblModel.getValueAt(indexRowSelected, 1));
+			}
+		});
+		tblTaiKhoan.setFont(new Font("Tahoma", Font.PLAIN, 16));
+		tblTaiKhoan.setRowHeight(50);
+		taiKhoanTblModel = new DefaultTableModel(
+				new Object[][] {
+				},
+				new String[] {
+					"Tài khoản", "Mật khẩu", "Quyền"
+				}
+			);
+		tblTaiKhoan.setModel(taiKhoanTblModel);
+		loadTblTaiKhoan();
+		
+		taiKhoanScrollPane.setViewportView(tblTaiKhoan);
+		tblTaiKhoan.setFillsViewportHeight(true);
+		
+		JButton btnTaiKhoanReload = new JButton("Tải lại bảng");
+		btnTaiKhoanReload.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				taiKhoanTblModel.setRowCount(0);
+				loadTblTaiKhoan();
+			}
+		});
+		btnTaiKhoanReload.setFont(new Font("Tahoma", Font.PLAIN, 16));
+		btnTaiKhoanReload.setBounds(475, 450, 120, 30);
+		cardTaiKhoanMgmt.add(btnTaiKhoanReload);
+		
 		JButton btnTaiKhoanDel = new JButton("Xóa bản ghi");
 		btnTaiKhoanDel.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -319,6 +312,17 @@ public class Application extends JFrame {
 		btnTaiKhoanDel.setFont(new Font("Tahoma", Font.PLAIN, 16));
 		btnTaiKhoanDel.setBounds(475, 500, 120, 30);
 		cardTaiKhoanMgmt.add(btnTaiKhoanDel);
+		
+		JButton btnTaiKhoanAdd_1 = new JButton("Thêm");
+		btnTaiKhoanAdd_1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				AddTaiKhoanFrame addTaiKhoanFrame = new AddTaiKhoanFrame();
+				addTaiKhoanFrame.setVisible(true);
+			}
+		});
+		btnTaiKhoanAdd_1.setFont(new Font("Tahoma", Font.PLAIN, 16));
+		btnTaiKhoanAdd_1.setBounds(475, 554, 80, 30);
+		cardTaiKhoanMgmt.add(btnTaiKhoanAdd_1);
 		
 		JButton btnTaiKhoanExit = new JButton("");
 		btnTaiKhoanExit.setIcon(new ImageIcon(Application.class.getResource("/com/myclass/gui/IMG/exit-1852366-1573369 (1).png")));
@@ -338,17 +342,6 @@ public class Application extends JFrame {
 			
 		});
 		cardTaiKhoanMgmt.add(btnTaiKhoanExit);
-		
-		JButton btnTaiKhoanAdd_1 = new JButton("Thêm");
-		btnTaiKhoanAdd_1.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				AddTaiKhoanFrame addTaiKhoanFrame = new AddTaiKhoanFrame();
-				addTaiKhoanFrame.setVisible(true);
-			}
-		});
-		btnTaiKhoanAdd_1.setFont(new Font("Tahoma", Font.PLAIN, 16));
-		btnTaiKhoanAdd_1.setBounds(475, 554, 80, 30);
-		cardTaiKhoanMgmt.add(btnTaiKhoanAdd_1);
 		// ===== ADMIN LAYOUT END HERE =====
 		
 		// ===== TOUR LAYOUT START HERE =====
@@ -357,38 +350,129 @@ public class Application extends JFrame {
 		cardTourMgmt.setLayout(null);
 		cardLayout.addLayoutComponent(cardTourMgmt, "cardTourMgmt");
 		
-		JLabel lblTourCard = new JLabel("Tour card");
-		lblTourCard.setBounds(31, 22, 286, 59);
+		JLabel lblTourCard = new JLabel("Trang quản lý tour");
+		lblTourCard.setBounds(0, 0, 400, 100);
 		lblTourCard.setFont(new Font("Tahoma", Font.BOLD | Font.ITALIC, 30));
 		cardTourMgmt.add(lblTourCard);
 		
-		JScrollPane tourScrollPane = new JScrollPane();
-		tourScrollPane.setBounds(75, 250, 500, 300);
-		cardTourMgmt.add(tourScrollPane);
+		JLabel lblMaTour = new JLabel("Nhập mã tour:");
+		lblMaTour.setFont(new Font("Tahoma", Font.PLAIN, 16));
+		lblMaTour.setBounds(50, 100, 150, 30);
+		cardTourMgmt.add(lblMaTour);
 		
-		tblTour = new JTable();
-		tblTour.setFont(new Font("Tahoma", Font.PLAIN, 16));
-		tblTour.setRowHeight(50);
-		tourTblModel = new DefaultTableModel(
-				new Object[][] {
-				},
-				new String[] {
-					"Mã tour", "Tên tour", "Giá vé", "Ngày bắt đầu", "Ngày kết thúc"
+		JTextField txtMaTour = new JTextField();
+		txtMaTour.setColumns(10);
+		txtMaTour.setBounds(200, 100, 300, 30);
+		cardTourMgmt.add(txtMaTour);
+		
+		JLabel lblTenTour = new JLabel("Nhập tên tour:");
+		lblTenTour.setFont(new Font("Tahoma", Font.PLAIN, 16));
+		lblTenTour.setBounds(50, 150, 150, 30);
+		cardTourMgmt.add(lblTenTour);
+		
+		JTextField txtTenTour = new JTextField();
+		txtTenTour.setColumns(10);
+		txtTenTour.setBounds(200, 150, 300, 30);
+		cardTourMgmt.add(txtTenTour);
+		
+		JLabel lblGiaVe = new JLabel("Nhập giá vé:");
+		lblGiaVe.setFont(new Font("Tahoma", Font.PLAIN, 16));
+		lblGiaVe.setBounds(50, 200, 150, 30);
+		cardTourMgmt.add(lblGiaVe);
+		
+		JTextField txtGiaVe = new JTextField();
+		txtGiaVe.setColumns(10);
+		txtGiaVe.setBounds(200, 200, 300, 30);
+		cardTourMgmt.add(txtGiaVe);
+		
+		JLabel lblMaKHTour = new JLabel("Nhập mã kế hoạch:");
+		lblMaKHTour.setFont(new Font("Tahoma", Font.PLAIN, 16));
+		lblMaKHTour.setBounds(50, 250, 150, 30);
+		cardTourMgmt.add(lblMaKHTour);
+		
+		JTextField txtMaKHTour = new JTextField();
+		txtMaKHTour.setColumns(10);
+		txtMaKHTour.setBounds(200, 250, 300, 30);
+		cardTourMgmt.add(txtMaKHTour);
+		
+		JLabel lblmaHD = new JLabel("Nhập mã hợp đồng:");
+		lblmaHD.setFont(new Font("Tahoma", Font.PLAIN, 16));
+		lblmaHD.setBounds(50, 300, 150, 30);
+		cardTourMgmt.add(lblmaHD);
+		
+		JTextField txtMaHD = new JTextField();
+		txtMaHD.setColumns(10);
+		txtMaHD.setBounds(200, 300, 300, 30);
+		cardTourMgmt.add(txtMaHD);
+		
+		JButton btnAddKHTour = new JButton("Tạo kế hoạch");
+		btnAddKHTour.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+			}
+		});
+		btnAddKHTour.setFont(new Font("Tahoma", Font.PLAIN, 16));
+		btnAddKHTour.setBounds(200, 350, 150, 30);
+		cardTourMgmt.add(btnAddKHTour);
+		
+		JButton btnAddHD = new JButton("Tạo hợp đồng");
+		btnAddHD.setFont(new Font("Tahoma", Font.PLAIN, 16));
+		btnAddHD.setBounds(360, 350, 150, 30);
+		cardTourMgmt.add(btnAddHD);
+		
+		JButton btnTourAdd = new JButton("Thêm");
+		btnTourAdd.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				TourDTO dto = new TourDTO();
+	
+				dto.setMaTour(txtMaTour.getText());
+				dto.setTenTour(txtTenTour.getText());
+				dto.setGiaVe(Double.parseDouble(txtGiaVe.getText()));
+				dto.setMaKHTour(txtMaKHTour.getText());
+				dto.setMaHD(txtMaHD.getText());
+				
+				tourBUS.add(dto);
+				TourBUS.listTourDTO.add(dto);
+				addRow(dto);
+			}
+		});
+		btnTourAdd.setFont(new Font("Tahoma", Font.PLAIN, 16));
+		btnTourAdd.setBounds(550, 100, 80, 30);
+		cardTourMgmt.add(btnTourAdd);
+		
+		JButton btnTourUpdate = new JButton("Sửa");
+		btnTourUpdate.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				int selectedRow = tblTour.getSelectedRow();
+				TourDTO dto = new TourDTO();
+				
+				if(!tourTblModel.getValueAt(selectedRow, 0).equals(txtMaTour.getText())) {
+					JOptionPane.showMessageDialog(new JFrame(), "Không được thay đổi mã tour!");
+					return;
 				}
-			);
-		tblTour.setModel(tourTblModel);
-		loadTblTour();
-		
-		tourScrollPane.setViewportView(tblTour);
-		tblTour.setFillsViewportHeight(true);
+				
+				dto.setMaTour(txtMaTour.getText());
+				dto.setTenTour(txtTenTour.getText());
+				dto.setGiaVe(Double.parseDouble(txtGiaVe.getText()));
+				dto.setMaKHTour(txtMaKHTour.getText());
+				dto.setMaHD(txtMaHD.getText());
+				
+				tourBUS.update(dto);
+				TourBUS.listTourDTO.set(selectedRow, dto);
+				setRow(dto, selectedRow);
+			}
+		});
+		btnTourUpdate.setFont(new Font("Tahoma", Font.PLAIN, 16));
+		btnTourUpdate.setBounds(550, 150, 80, 30);
+		cardTourMgmt.add(btnTourUpdate);
 		
 		JLabel lblTourSearch = new JLabel("Tìm kiếm:");
 		lblTourSearch.setFont(new Font("Tahoma", Font.ITALIC, 16));
-		lblTourSearch.setBounds(29, 206, 93, 23);
+		lblTourSearch.setBounds(20, 400, 80, 30);
 		cardTourMgmt.add(lblTourSearch);
 		
 		JTextField txtTourSearch = new JTextField();
-		txtTourSearch.setBounds(125, 206, 142, 23);
+		txtTourSearch.setBounds(100, 400, 200, 30);
 		cardTourMgmt.add(txtTourSearch);
 		txtTourSearch.setColumns(10);
 		
@@ -405,10 +489,42 @@ public class Application extends JFrame {
 			}
 		});
 		btnTourSearch.setFont(new Font("Tahoma", Font.PLAIN, 16));
-		btnTourSearch.setBounds(271, 206, 85, 21);
+		btnTourSearch.setBounds(310, 400, 80, 30);
 		cardTourMgmt.add(btnTourSearch);
 		
-		JButton btnTourDel = new JButton("Xóa");
+		JScrollPane tourScrollPane = new JScrollPane();
+		tourScrollPane.setBounds(150, 450, 500, 300);
+		cardTourMgmt.add(tourScrollPane);
+		
+		tblTour = new JTable();
+		tblTour.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				int indexRowSelected = tblTour.getSelectedRow();
+				
+				txtMaTour.setText((String) tourTblModel.getValueAt(indexRowSelected, 0));
+				txtTenTour.setText((String) tourTblModel.getValueAt(indexRowSelected, 1));
+				txtGiaVe.setText(String.valueOf( tourTblModel.getValueAt(indexRowSelected, 2) ));
+				txtMaKHTour.setText((String) tourTblModel.getValueAt(indexRowSelected, 3));
+				txtMaHD.setText((String) tourTblModel.getValueAt(indexRowSelected, 4));
+			}
+		});
+		tblTour.setFont(new Font("Tahoma", Font.PLAIN, 16));
+		tblTour.setRowHeight(50);
+		tourTblModel = new DefaultTableModel(
+				new Object[][] {
+				},
+				new String[] {
+					"Mã tour", "Tên tour", "Giá vé", "Mã kế hoạch tour", "Mã hợp đồng"
+				}
+			);
+		tblTour.setModel(tourTblModel);
+		loadTblTour();
+		
+		tourScrollPane.setViewportView(tblTour);
+		tblTour.setFillsViewportHeight(true);
+		
+		JButton btnTourDel = new JButton("Xóa bản ghi");
 		btnTourDel.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				int selectedRow = tblTour.getSelectedRow();
@@ -418,35 +534,20 @@ public class Application extends JFrame {
 				tourTblModel.removeRow(selectedRow);
 			}
 		});
+		btnTourDel.setFont(new Font("Tahoma", Font.PLAIN, 16));
+		btnTourDel.setBounds(675, 500, 120, 30);;
+		cardTourMgmt.add(btnTourDel);
 		
-		JButton btnTourAdd = new JButton("Thêm");
-		btnTourAdd.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				AddTaiKhoanFrame addFrame = new AddTaiKhoanFrame();
-				addFrame.setVisible(true);
-			}
-		});
-		
-		JButton btnTourReload = new JButton("Tải lại");
+		JButton btnTourReload = new JButton("Tải lại bảng");
 		btnTourReload.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				tourTblModel.setRowCount(0);
 				loadTblTour();
 			}
 		});
-		
 		btnTourReload.setFont(new Font("Tahoma", Font.PLAIN, 16));
-		btnTourReload.setBounds(585, 251, 85, 21);
+		btnTourReload.setBounds(675, 450, 120, 30);
 		cardTourMgmt.add(btnTourReload);
-		
-		btnTourAdd.setFont(new Font("Tahoma", Font.PLAIN, 16));
-		btnTourAdd.setBounds(585, 283, 85, 21);
-		cardTourMgmt.add(btnTourAdd);
-		
-		btnTourDel.setFont(new Font("Tahoma", Font.PLAIN, 16));
-		btnTourDel.setBounds(585, 314, 85, 21);
-		cardTourMgmt.add(btnTourDel);
-		
 		// ===== TOUR LAYOUT END HERE =====
 		
 	}
@@ -467,21 +568,10 @@ public class Application extends JFrame {
 	}
 	
 	public void loadTblTour() {
-		ArrayList<TourDTO> listTourDTO = TourBUS.listTourDTO;
-		ArrayList<KHTourDTO> listKHTourDTO = KHTourBUS.listKHTourDTO;
-		
-		for(int i = 0; i < listTourDTO.size(); i++) {
-			TourDTO tourDTO = listTourDTO.get(i);
-			KHTourDTO khTourDTO = listKHTourDTO.get(i);
-			Vector<Object> rowData = new Vector<Object>();
-
-			rowData.add(tourDTO.getMaTour());
-			rowData.add(tourDTO.getTenTour());
-			rowData.add(tourDTO.getGiaVe());
-			rowData.add(khTourDTO.getNgayBatDau());
-			rowData.add(khTourDTO.getNgayKetThuc());
-			
-			tourTblModel.addRow(rowData);
+		for(TourDTO tour : TourBUS.listTourDTO) {
+			tourTblModel.addRow(new Object[] {
+					tour.getMaTour(), tour.getTenTour(), tour.getGiaVe(), tour.getMaKHTour(), tour.getMaHD()
+			});
 		}
 	}
 	
@@ -502,6 +592,18 @@ public class Application extends JFrame {
 		taiKhoanTblModel.addRow(rowData);
 	}
 	
+	public void addRow(TourDTO dto) {
+		Vector<String> rowData = new Vector<String>();
+		
+		rowData.add(dto.getMaTour());
+		rowData.add(dto.getTenTour());
+		rowData.add(String.valueOf(dto.getGiaVe()));
+		rowData.add(dto.getMaKHTour());
+		rowData.add(dto.getMaHD());
+		
+		tourTblModel.addRow(rowData);
+	}
+	
 	public void setRow(TaiKhoanDTO dto, int selectedRow) {
 		String tenQuyen = null;
 		if(dto.getQuyen() == 0) {
@@ -513,8 +615,14 @@ public class Application extends JFrame {
 		taiKhoanTblModel.setValueAt(dto.getTenTK(), selectedRow, 0);
 		taiKhoanTblModel.setValueAt(dto.getMatKhau(), selectedRow, 1);
 		taiKhoanTblModel.setValueAt(tenQuyen, selectedRow, 2);
-		
-//		tblTaiKhoan.setModel(taiKhoanTblModel);
+	}
+	
+	public void setRow(TourDTO dto, int selectedRow) {
+		tourTblModel.setValueAt(dto.getMaTour(), selectedRow, 0);
+		tourTblModel.setValueAt(dto.getTenTour(), selectedRow, 1);
+		tourTblModel.setValueAt(dto.getGiaVe(), selectedRow, 2);
+		tourTblModel.setValueAt(dto.getMaKHTour(), selectedRow, 3);
+		tourTblModel.setValueAt(dto.getMaHD(), selectedRow, 4);
 	}
 
     public static Application getAppInstance() {

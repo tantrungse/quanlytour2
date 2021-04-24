@@ -7,12 +7,10 @@ import com.myclass.dao.TourDAO;
 import com.myclass.dto.TourDTO;
 
 public class TourBUS {
-	public static ArrayList<TourDTO> listTour;
-	private TourDAO tourDAO;
+	private static TourDAO tourDAO = new TourDAO(); 
+	public static ArrayList<TourDTO> listTourDTO = tourDAO.getAll();
 	
-	public TourBUS() {
-		tourDAO = new TourDAO();
-	}
+	public TourBUS() {}
 	
 	public TourDTO getById(String maTour) {
 		
@@ -20,11 +18,11 @@ public class TourBUS {
 	}
 	
 	
-	public void add(TourDTO dto) throws SQLException {
+	public void add(TourDTO dto) {
 		tourDAO.add(dto);
 	}
 	
-	public void update(TourDTO dto) throws SQLException {
+	public void update(TourDTO dto) {
 		tourDAO.update(dto);
 	}
 	
