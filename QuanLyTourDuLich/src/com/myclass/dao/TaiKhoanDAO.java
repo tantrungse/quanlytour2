@@ -97,7 +97,6 @@ public class TaiKhoanDAO {
             while (resultSet.next()) {
                 TaiKhoanDTO dto = new TaiKhoanDTO(resultSet.getString(1), resultSet.getString(2), Integer.valueOf(resultSet.getString(3)));
                 dtos.add(dto);
-
             }
         } catch (SQLException ex) {
             Logger.getLogger(PhuongTienDAO.class.getName()).log(Level.SEVERE, null, ex);
@@ -123,14 +122,12 @@ public class TaiKhoanDAO {
     
     public ArrayList<TaiKhoanDTO> getByTenTK(String tenTK) {
     	ArrayList<TaiKhoanDTO> dtos = new ArrayList<TaiKhoanDTO>();
-    	Connection conn = null;
-    	Statement stmt = null;
-    	ResultSet rs = null;
-    	String query = "SELECT * FROM taikhoan WHERE TenTK = '" + tenTK + "';"; 
+    	String query = "SELECT * FROM taikhoan WHERE TenTK LIKE ?"; 
     	try {
     		conn = JDBCConnection.getJDBCConnection();
-    		stmt = conn.createStatement();
-    		rs = stmt.executeQuery(query);
+    		pstmt = conn.prepareStatement(query);
+    		pstmt.setString(1, tenTK + "%");
+    		rs = pstmt.executeQuery();
     		
     		while(rs.next()) {
     			TaiKhoanDTO dto = new TaiKhoanDTO();
@@ -140,14 +137,16 @@ public class TaiKhoanDAO {
     			dto.setQuyen(rs.getInt(3));
     			
     			dtos.add(dto);
-    			
-    			return dtos;
     		}
+    		
+    		return dtos;
     	} catch(SQLException e) {
     		e.printStackTrace();
     	}
+    	
     	return null;
     }
+    
 	public void update(TaiKhoanDTO dto) {
 		try {	
 			conn = JDBCConnection.getJDBCConnection();
